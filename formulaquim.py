@@ -1,18 +1,21 @@
 import funções
 from mendeleev import element
+from googletrans import Translator
 
-formulaprinc = list()
+formulamostrada = list()
+formuladados = list()
 
 formula = list(str(input('Digite a fórmula da substância química: ')).strip())
 
 for i in formula:
     sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
     if i.isalpha() == True:
-        formulaprinc.append(i)
+        formulamostrada.append(i)
     if i.isdigit() == True:
-        print(i.translate(sub))
-print(formula)
-funções.cabeçalho()
+        formulamostrada.append(i.translate(sub))
+separator = ''
+
+funções.cabeçalho(separator.join(formulamostrada))
 
 try:
     escolha = int(input('Digite a opção desejada: '))
@@ -28,6 +31,10 @@ except ValueError:
 for i in formula:
     if escolha == 1:
         if i.isalpha() == True:
-            i = element(f'{i}')
-            print(i.name)
-    # elif escolha == 2:
+            if i not in formuladados:
+                formuladados.append(i)
+# for i in formuladados:
+#     i = element(f'{i}')
+#     translator = Translator()
+#     translator.translate(f'{i.name}', scr= 'en', dest= 'pt')
+
