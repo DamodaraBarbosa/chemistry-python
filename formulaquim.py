@@ -13,28 +13,29 @@ for i in formula:
         formulamostrada.append(i)
     if i.isdigit() == True:
         formulamostrada.append(i.translate(sub))
-separator = ''
 
+separator = ''
 funções.cabeçalho(separator.join(formulamostrada))
 
-try:
-    escolha = int(input('Digite a opção desejada: '))
-except ValueError:
-    funções.erro()
-    while True:
-        try:
-            escolha = int(input('Digite a opção desejada: '))
-            break
-        except ValueError:
-            funções.erro()
-
-for i in formula:
+while True:
+    try:
+        escolha = int(input('Digite a opção desejada: '))
+    except ValueError:
+        funções.erro()
+        while True:
+            try:
+                escolha = int(input('Digite a opção desejada: '))
+                break
+            except ValueError:
+                funções.erro()
     if escolha == 1:
-        if i.isalpha() == True:
-            if i not in formuladados:
-                formuladados.append(i)
-# for i in formuladados:
-#     i = element(f'{i}')
-#     translator = Translator()
-#     translator.translate(f'{i.name}', scr= 'en', dest= 'pt')
-
+        for i in formula:
+            if i.isalpha() == True:
+                if i not in formuladados:
+                    formuladados.append(i)
+        for i in formuladados:
+                i = element(f'{i}')
+                translator = Translator()
+                t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
+                print(t.text)
+    # elif escolha == 2:

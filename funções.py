@@ -16,3 +16,4 @@ def cabeçalho(form):
     linha2()
     print('1. Elementos contidos na fórmula e as suas propriedades.')
     print('2. Massa molecular da substância.')
+    print('0. Finalizar o programa')
