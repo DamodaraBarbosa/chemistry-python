@@ -28,14 +28,19 @@ while True:
                 break
             except ValueError:
                 funções.erro()
+    if escolha == 0:
+        break
     if escolha == 1:
         for i in formula:
             if i.isalpha() == True:
                 if i not in formuladados:
                     formuladados.append(i)
+        funções.cabeçalhoop1()
         for i in formuladados:
-                i = element(f'{i}')
-                translator = Translator()
-                t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
-                print(t.text)
+            i = element(f'{i}')
+            translator = Translator()
+            t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
+            print(t.text, end='     ')
+            print(i.atomic_number, end='    ')
+            print(i.atomic_weight)
     # elif escolha == 2:

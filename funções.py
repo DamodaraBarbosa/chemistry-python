@@ -17,3 +17,12 @@ def cabeçalho(form):
     print('1. Elementos contidos na fórmula e as suas propriedades.')
     print('2. Massa molecular da substância.')
     print('0. Finalizar o programa')
+
+def cabeçalhoop1():
+    linha()
+    print('\t PROPRIEDADES DOS ELEMENTOS')
+    linha()
+    print(f'{"NOME":<12}', end='|   ')
+    print(f'{"NÚMERO ATÔMICO (Z)":<28}', end='|   ')
+    print(f'{"MASSA ATÔMICA"}')
+    linha()
