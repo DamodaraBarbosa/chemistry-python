@@ -52,4 +52,33 @@ while True:
             print(f'{i.atomic_number:<26}', end='    ')
             print(f'{i.atomic_weight:.2f}')
         funções.linha()
+    elif escolha == 9:
+        formulamostrada.clear()
+        formuladados.clear()
+        formula = list(str(input('Digite a fórmula da substância química: ')).strip())
+
+        for i in formula:
+            sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
+            if i.isalpha() == True:
+                formulamostrada.append(i)
+            elif i.isdigit() == True:
+                formulamostrada.append(i.translate(sub))
+            else:
+                formulamostrada.append(i)
+
+        separator = ''
+        funções.cabeçalho(separator.join(formulamostrada))
+
+        for i in formula:
+            if i.isalpha() == True:
+                if i.islower() == True:
+                    formula[formula.index(i)-1:formula.index(i)+1] = [''.join(formula[formula.index(i)-1:formula.index(i)+1])]
+        for i in formula:
+            if i.isalpha() == True:
+                formuladados.append(i)
+
+        
+
+
+        
     # elif escolha == 2:
