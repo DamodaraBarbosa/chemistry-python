@@ -53,9 +53,20 @@ while True:
             print(f'{i.atomic_weight:.2f}')
         funções.linha()
     elif escolha == 3:
+        cont = 0
+        indexrepetidos = list()
         for i, l in enumerate(formula):
             if l.isalpha() == True and formula[formula.index(l)+1].isalpha() == True:
-                formula.insert(formula.index(i)+1, '1')
+                indexrepetidos.append(i)
+        for i, l in enumerate(indexrepetidos):
+            cont += 1
+            if i == 0:
+                formula.insert(indexrepetidos[i]+1, '1')
+            else:
+                formula.insert(indexrepetidos[i]+cont, '1')
+                # print(i, end='  ')
+            
+                # formula.insert(formula.index(l)+1, '1')
                 # if formula[formula.index(i)+1].isalpha() == True:
                 #     print(i)
 
