@@ -4,6 +4,7 @@ from mendeleev import element
 from googletrans import Translator
 
 formulamostrada = list()
+formuladados = list()
 
 formula = list(str(input('Digite a fórmula da substância química: ')).strip())
 
@@ -21,8 +22,10 @@ for i in formula:
     if i.isalpha() == True:
         if i.islower() == True:
             formula[formula.index(i)-1:formula.index(i)+1] = [''.join(formula[formula.index(i)-1:formula.index(i)+1])]
-    else:
-        formula.remove(i)
+
+for i in formula:
+    if i.isalpha() == True:
+        formuladados.append(i)
 
 while True:
     try:
@@ -39,12 +42,12 @@ while True:
         break
     if escolha == 1:
         funções.cabeçalhoop1()
-        for i in formula:
+        for i in formuladados:
             i = element(f'{i}')
             translator = Translator()
             t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
             print(f'{t.text:<15}', end='     ')
             print(f'{i.atomic_number:<26}', end='    ')
-            print(i.atomic_weight)
+            print(f'{i.atomic_weight:.2f}')
         funções.linha()
     # elif escolha == 2:
