@@ -58,6 +58,11 @@ while True:
         for i, l in enumerate(formula):
             if l.isalpha() == True and formula[formula.index(l)+1].isalpha() == True:
                 indexrepetidos.append(i)
+            elif i == len(formula) - 1 and l.isalpha():
+                print(i, l)
+                formula.insert(i+1, '1')
+            else:
+                break
         for i, l in enumerate(indexrepetidos):
             cont += 1
             if i == 0:
