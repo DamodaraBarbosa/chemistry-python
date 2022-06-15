@@ -28,4 +28,12 @@
 
 lista = [1, 2, 3, 2, 5, 6, 2]
 
-print(lista.count(2))
+for elem in lista:
+    if elem in lista:
+        counter = 0
+        elem_pos = []
+        for i in lista:
+            if i == elem:
+                elem_pos.append(counter)
+            counter = counter + 1
+print(elem_pos)

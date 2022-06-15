@@ -53,12 +53,14 @@ while True:
             print(f'{i.atomic_weight:.2f}')
         funções.linha()
     elif escolha == 3:
-        for i in formula:
-            if i.isalpha() == True:
-                if formula[formula.index(i)+1].isalpha() == True:
-                    print(i)
-                    print(formula.index(i))
-                    # formula.insert(formula.index(i)+1, '1')
+        for i, l in enumerate(formula):
+            if l.isalpha() == True and formula[formula.index(l)+1].isalpha() == True:
+                formula.insert(formula.index(i)+1, '1')
+                # if formula[formula.index(i)+1].isalpha() == True:
+                #     print(i)
+
+                    
+        #     formula.insert(i+1, '1')
                 # formula.insert(suc, 1)
         print(formula)
     elif escolha == 9:
