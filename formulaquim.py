@@ -24,10 +24,10 @@ for i in formula:
     if i.isalpha() == True:
         if i.islower() == True:
             formula[formula.index(i)-1:formula.index(i)+1] = [''.join(formula[formula.index(i)-1:formula.index(i)+1])]
-
 for i in formula:
     if i.isalpha() == True:
-        formuladados.append(i)
+        if i not in formuladados:
+            formuladados.append(i)
 
 while True:
     try:
@@ -53,6 +53,7 @@ while True:
             print(f'{i.atomic_weight:.2f}')
         funções.linha()
     elif escolha == 9:
+        funções.linha()
         formulamostrada.clear()
         formuladados.clear()
         formula = list(str(input('Digite a fórmula da substância química: ')).strip())
@@ -75,10 +76,5 @@ while True:
                     formula[formula.index(i)-1:formula.index(i)+1] = [''.join(formula[formula.index(i)-1:formula.index(i)+1])]
         for i in formula:
             if i.isalpha() == True:
-                formuladados.append(i)
-
-        
-
-
-        
-    # elif escolha == 2:
+                if i not in formuladados:
+                    formuladados.append(i)
