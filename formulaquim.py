@@ -1,9 +1,9 @@
+from ntpath import join
 import funções
 from mendeleev import element
 from googletrans import Translator
 
 formulamostrada = list()
-formuladados = list()
 
 formula = list(str(input('Digite a fórmula da substância química: ')).strip())
 
@@ -16,6 +16,13 @@ for i in formula:
 
 separator = ''
 funções.cabeçalho(separator.join(formulamostrada))
+
+for i in formula:
+    if i.isalpha() == True:
+        if i.islower() == True:
+            formula[formula.index(i)-1:formula.index(i)+1] = [''.join(formula[formula.index(i)-1:formula.index(i)+1])]
+    else:
+        formula.remove(i)
 
 while True:
     try:
@@ -31,16 +38,13 @@ while True:
     if escolha == 0:
         break
     if escolha == 1:
-        for i in formula:
-            if i.isalpha() == True:
-                if i not in formuladados:
-                    formuladados.append(i)
         funções.cabeçalhoop1()
-        for i in formuladados:
+        for i in formula:
             i = element(f'{i}')
             translator = Translator()
             t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
-            print(t.text, end='     ')
-            print(i.atomic_number, end='    ')
+            print(f'{t.text:<15}', end='     ')
+            print(f'{i.atomic_number:<26}', end='    ')
             print(i.atomic_weight)
+        funções.linha()
     # elif escolha == 2:

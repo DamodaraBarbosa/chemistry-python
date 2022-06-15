@@ -12,17 +12,18 @@ def erro():
 
 def cabeçalho(form):
     linha2()
-    print(f'\t OPÇÕES para substância {form}')
+    print(f'\tOPÇÕES para substância {form}')
     linha2()
     print('1. Elementos contidos na fórmula e as suas propriedades.')
     print('2. Massa molecular da substância.')
     print('0. Finalizar o programa')
+    linha()
 
 def cabeçalhoop1():
     linha()
-    print('\t PROPRIEDADES DOS ELEMENTOS')
+    print(f'{"PROPRIEDADES DOS ELEMENTOS":>42}')
     linha()
-    print(f'{"NOME":<12}', end='|   ')
-    print(f'{"NÚMERO ATÔMICO (Z)":<28}', end='|   ')
+    print(f'{"NOME":<12}', end=' ')
+    print(f'{"NÚMERO ATÔMICO (Z)":<32}', end=' ')
     print(f'{"MASSA ATÔMICA"}')
     linha()
