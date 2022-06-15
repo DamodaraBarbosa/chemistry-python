@@ -67,8 +67,11 @@ while True:
             else:
                 formula.insert(indexrepetidos[i]+cont, '1')
         for i, l in enumerate(formula):
+            formulacontagem = list()
             if l.isalpha() == True:
-                print(f'{l}'*int(formula[i+1]))
+                res = (l*int(formula[i+1]))
+                formulacontagem.append(res)
+        print(formulacontagem)
 
                 
 
