@@ -12,8 +12,10 @@ for i in formula:
     sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
     if i.isalpha() == True:
         formulamostrada.append(i)
-    if i.isdigit() == True:
+    elif i.isdigit() == True:
         formulamostrada.append(i.translate(sub))
+    else:
+        formulamostrada.append(i)
 
 separator = ''
 funções.cabeçalho(separator.join(formulamostrada))
