@@ -50,6 +50,7 @@ while True:
             print(f'{i.atomic_number:<26}', end='    ')
             print(f'{i.atomic_weight:.2f}')
         funções.linha()
+
     elif escolha == 3:
 
         cont = 0
@@ -83,7 +84,7 @@ while True:
                 formulacontagem.append(res)
 
         print(formulacontagem)
-        
+
         formulacontagem2 = list()
         formulacontagem3 = list()
 
@@ -94,9 +95,20 @@ while True:
                     formulacontagem3.append(l)
         print(formulacontagem2)
         print(formulacontagem3)
-        print('C:' f'{formulacontagem2.count("C")} vezes.')
-        print('H:' f'{formulacontagem2.count("H")} vezes.')
-        print('O:' f'{formulacontagem2.count("O")} vezes.')
+
+        funções.cabeçalhoop3()
+
+        for i in formulacontagem3:
+            el = element(f'{i}')
+            translator = Translator()
+            t = translator.translate(f'{el.name}', src= 'en', dest='pt')
+            print(f'{t.text:<30}', end='')
+            print(formulacontagem2.count(i))
+        funções.linha()
+       
+
+            
+             
 
 
         

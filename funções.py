@@ -1,3 +1,5 @@
+from mendeleev import element
+
 def linha():
     print('\033[1;33m--\033[m'*30)
 
@@ -30,4 +32,13 @@ def cabeçalhoop1():
     print(f'{"MASSA ATÔMICA"}')
     linha()
 
+def cabeçalhoop3():
+    linha()
+    print(f'{"QUANTIDADE DE ÁTOMOS POR ELEMENTO":>42}')
+    linha()
+    print(f'{"NOME":<20}', end='')
+    print('QUANTIDADE DE ÁTOMOS')
+    linha()
+   
+    
 
