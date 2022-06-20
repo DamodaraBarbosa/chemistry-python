@@ -1,4 +1,3 @@
-from ntpath import join
 import funções
 from mendeleev import element
 from googletrans import Translator
@@ -70,19 +69,39 @@ while True:
                 formula.insert(indexrepetidos[i]+1, '1')
             else:                    
                 formula.insert(indexrepetidos[i]+cont, '1')
-        print(formula)
+        print(formula,'*')
 
-        for i in formula:
-            if l.isnumeric() == True and formula[formula.index(i)+1].isnumeric() == True:
-                print(i)
-                print(formula[formula.index(i)+1])
-                formula[formula.index(i):formula.index(i)+1] = [''.join(formula[formula.index(i):formula.index(i)+1])]
-            else:
-                pass
+        for i, l in enumerate(formula):
+            if l.isnumeric() == True and formula[i-1].isnumeric() == True:
+                formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
+                # print(formula[i-1] + l)
 
-        print(formula)
+        
+        # indexnumeros = list()
+
+        # for i, l in enumerate(formula):
+        #     if l.isdigit() == True:
+        #         indexnumeros.append(i)
+
+        # formula.insert(len(formula), 'A')
+        # print(formula)
+        # for i, l in enumerate(indexnumeros):
+        #     if formula[l].isnumeric() == True and formula[(l)-1].isnumeric() == True:
+        #         print(l)
+        #         formula[l:l+2] = [''.join(formula[l:l+2])]
+                # formula[l:l+1] = [''.join(formula[l:l+1])]
+                # formula[l-1:l+1] = [''.join(formula[l-1:l+1])]
+            # if formula[i].isnumeric() == True and formula[(i)-1].isnumeric() == True:
+            #     formula[(i)-1:i] = [''.join(formula[(i)-1:i])]
+            #     print(formula[i], end=' ')
+            #     print(formula[(i)-1])
+            #     print('\n')
+        # print(formula)
+                # print(formula[formula.index(i)+1])
+                # formula[formula.index(i):formula.index(i)+1] = [''.join(formula[formula.index(i):formula.index(i)+1])]
+
         formulacontagem = list()
-            
+    
         try:
             for i, l in enumerate(formula):
                 if l.isalpha() == True:
@@ -90,7 +109,7 @@ while True:
                     formulacontagem.append(res)
         except:
             pass
-        print(formulacontagem)
+        print(formulacontagem, '*')
 
         formulacontagem2 = list()
         formulacontagem3 = list()
@@ -109,8 +128,8 @@ while True:
         
             
         print('\n')
-        print(formulacontagem2)
-        print(formulacontagem3)
+        print(formulacontagem2, '*')
+        print(formulacontagem3, '*')
 
         funções.cabeçalhoop3()
 

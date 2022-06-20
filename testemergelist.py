@@ -26,14 +26,7 @@
 # substancia[0:2] = [''.join(substancia[0:2])]
 # print(substancia)
 
-lista = [1, 2, 3, 2, 5, 6, 2]
+lista = ['1', '2', '3', '2', '5', '6', '2']
 
-for elem in lista:
-    if elem in lista:
-        counter = 0
-        elem_pos = []
-        for i in lista:
-            if i == elem:
-                elem_pos.append(counter)
-            counter = counter + 1
-print(elem_pos)
+lista[1:3] = [''.join(lista[1:3])]
+print(lista)
