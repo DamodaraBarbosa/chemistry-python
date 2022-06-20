@@ -70,11 +70,19 @@ while True:
                 formula.insert(indexrepetidos[i]+1, '1')
             else:                    
                 formula.insert(indexrepetidos[i]+cont, '1')
-       
         print(formula)
 
-        formulacontagem = list()
+        for i in formula:
+            if l.isnumeric() == True and formula[formula.index(i)+1].isnumeric() == True:
+                print(i)
+                print(formula[formula.index(i)+1])
+                formula[formula.index(i):formula.index(i)+1] = [''.join(formula[formula.index(i):formula.index(i)+1])]
+            else:
+                pass
 
+        print(formula)
+        formulacontagem = list()
+            
         try:
             for i, l in enumerate(formula):
                 if l.isalpha() == True:
@@ -95,7 +103,6 @@ while True:
         for i in formulacontagem2:
             if str(i).isalpha() == True and str(i).islower() == True:
                 formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1] = [''.join(formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1])]
-        
         for i in formulacontagem2:
             if i not in formulacontagem3:
                 formulacontagem3.append(i)
