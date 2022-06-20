@@ -61,6 +61,8 @@ while True:
                 indexrepetidos.append(i)
             elif i == len(formula) - 1 and l.isalpha():
                 formula.insert(i+1, '1')
+            else:
+                pass
         for i, l in enumerate(indexrepetidos):
             cont += 1
             if i == 0:
@@ -70,14 +72,7 @@ while True:
         print(formula)
 
         formulacontagem = list()
-
-        # cont = 0
-        # for i, l in enumerate(formula):
-        #     cont += 1
-        #     if l.isalpha() == True:
-        #         if l == formula[i+cont]:
-        #             print(i, formula[i+1])
-
+        
         for i, l in enumerate(formula):
             if l.isalpha() == True:
                 res = str(l*int(formula[i+1]))
@@ -88,11 +83,24 @@ while True:
         formulacontagem2 = list()
         formulacontagem3 = list()
 
+
         for i, l in enumerate(formulacontagem):
             for i, l in enumerate(formulacontagem[i]):
                 formulacontagem2.append(l)
                 if l not in formulacontagem3:
                     formulacontagem3.append(l)
+        for i in formulacontagem2:
+            if str(i).isalpha() == True and str(i).islower() == True:
+                formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1] = [''.join(formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1])]
+            else:
+                pass
+        for i in formulacontagem3:
+            if str(i).isalpha() == True and str(i).islower() == True:
+                formulacontagem3[formulacontagem3.index(i)-1:formulacontagem3.index(i)+1] = [''.join(formulacontagem3[formulacontagem3.index(i)-1:formulacontagem3.index(i)+1])]    
+            else:
+                pass
+
+        print('\n')
         print(formulacontagem2)
         print(formulacontagem3)
 
