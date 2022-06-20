@@ -75,8 +75,7 @@ while True:
             if l.isnumeric() == True and formula[i-1].isnumeric() == True:
                 formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
                 # print(formula[i-1] + l)
-
-        
+        print(formula)
         # indexnumeros = list()
 
         # for i, l in enumerate(formula):
@@ -118,7 +117,7 @@ while True:
         for i, l in enumerate(formulacontagem):
             for i, l in enumerate(formulacontagem[i]):
                 formulacontagem2.append(l)
-            
+        print(formulacontagem2, '+')  
         for i in formulacontagem2:
             if str(i).isalpha() == True and str(i).islower() == True:
                 formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1] = [''.join(formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1])]
