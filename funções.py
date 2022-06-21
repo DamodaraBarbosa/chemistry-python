@@ -39,6 +39,15 @@ def cabeçalhoop3():
     print(f'{"NOME":<20}', end='')
     print('QUANTIDADE DE ÁTOMOS')
     linha()
+
+
+def cabeçalhoop2():
+    linha()
+    print(f'{"MASSA MOLECULAR":>36}')
+    linha()
+    print(f'{"FÓRMULA DA SUBSTÂNCIA":<45}', end='')
+    print('MASSA (u)')
+    linha()
    
     
 
