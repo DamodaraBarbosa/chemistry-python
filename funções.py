@@ -24,30 +24,31 @@ def cabeçalho(form):
     linha()
 
 def cabeçalhoop1():
-    linha()
+    linha2()
     print(f'{"PROPRIEDADES DOS ELEMENTOS":>42}')
-    linha()
+    linha2()
     print(f'{"NOME":<12}', end=' ')
     print(f'{"NÚMERO ATÔMICO (Z)":<32}', end=' ')
     print(f'{"MASSA ATÔMICA"}')
     linha()
 
 def cabeçalhoop3():
-    linha()
-    print(f'{"QUANTIDADE DE ÁTOMOS POR ELEMENTO":>42}')
-    linha()
+    linha2()
+    print(f'{"QUANTIDADE DE ÁTOMOS POR ELEMENTO":>45}')
+    linha2()
     print(f'{"NOME":<20}', end='')
     print('QUANTIDADE DE ÁTOMOS')
     linha()
 
 
 def cabeçalhoop2():
-    linha()
+    linha2()
     print(f'{"MASSA MOLECULAR":>36}')
-    linha()
+    linha2()
     print(f'{"FÓRMULA DA SUBSTÂNCIA":<45}', end='')
     print('MASSA (u)')
     linha()
-   
+
+    
     
 
