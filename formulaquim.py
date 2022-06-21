@@ -1,6 +1,7 @@
 import funções
 from mendeleev import element
 from googletrans import Translator
+from chemspipy import ChemSpider
 
 formulamostrada = list()
 formuladados = list()
@@ -9,6 +10,8 @@ formulacontagem2 = list()
 formulacontagem3 = list()
 indexrepetidos = list()
 escolha = ''
+
+cs = ChemSpider('r7nxDXgiGYxrON5yPSjop7PgqAvaPiR2c')
 
 while True:
 
@@ -94,8 +97,6 @@ while True:
                 except ValueError:
                     funções.erro()
 
-        if escolha == 9:
-            break
         if escolha == 1:
             funções.cabeçalhoop1()
             for i in formuladados:
@@ -131,7 +132,23 @@ while True:
                 print(f'{t.text:<30}', end='')
                 print(formulacontagem2.count(i))
             funções.linha()
-        
+        elif escolha == 4:
+            
+            formulanome = list()
+
+            for i in formulamostrada:
+                sub = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
+                if i.isalpha() == True:
+                    formulanome.append(i)
+                elif i.isdigit() == True:
+                    formulanome.append(i.translate(sub))
+                else:
+                    formulanome.append(i)
+            
+            for i in formulanome:
+                formulanome[0:len(formulanome)] = [''.join(formulanome[0:len(formulanome)])]
+            print(cs.search('glucose'))
+
         elif escolha == 9:
             funções.linha()
             break
