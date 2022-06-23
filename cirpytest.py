@@ -1,4 +1,4 @@
 import cirpy
 
-c = cirpy.resolve('HNa2S', 'iupac_name')
+c = cirpy.resolve('C2H4', 'iupac_name')
 print(c)

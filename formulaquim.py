@@ -11,8 +11,6 @@ formulacontagem3 = list()
 indexrepetidos = list()
 escolha = ''
 
-cs = ChemSpider('r7nxDXgiGYxrON5yPSjop7PgqAvaPiR2c')
-
 while True:
 
     formulamostrada.clear()
@@ -23,6 +21,9 @@ while True:
     indexrepetidos.clear()
 
     formula = list(str(input('Digite a fórmula da substância química: ')).strip())
+
+    if formula == ['9','9','9']:
+        break
 
     for i in formula:
         sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
@@ -144,11 +145,28 @@ while True:
                     formulanome.append(i.translate(sub))
                 else:
                     formulanome.append(i)
+            cs = ChemSpider('r7nxDXgiGYxrON5yPSjop7PgqAvaPiR2')
+            resultado = cs.search(formulanome)
+            print(resultado)
             
             for i in formulanome:
                 formulanome[0:len(formulanome)] = [''.join(formulanome[0:len(formulanome)])]
-            print(cs.search('glucose'))
+        elif escolha == 5:
+            grupamento = list()
+            join3 = list()
+            join4 = list()
 
+            funções.linha()
+            for i, l in enumerate(formulamostrada):
+                formulagrupamento = ''.join(formulamostrada[0:len(formulamostrada)])
+            #     if l == 'C':
+            #         join3.append(formula[i:len(formulamostrada)-1])
+            # join3 = ''.join(join3)
+            # print(join3)
+            print(formulagrupamento)
+            funções.grupamentofuncional(formulagrupamento)
+                    
+            
         elif escolha == 9:
             funções.linha()
             break

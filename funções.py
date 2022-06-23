@@ -1,3 +1,4 @@
+from ast import Index
 from mendeleev import element
 
 def linha():
@@ -19,7 +20,8 @@ def cabeçalho(form):
     print('1. Elementos contidos na fórmula e as suas propriedades.')
     print('2. Massa molecular da substância.')
     print('3. Quantos átomos há em cada elemento.')
-    print('4. Possível(is) nome(s) para a fórmula escrita')
+    print('4. Possível(is) nome(s) para a fórmula escrita.')
+    print('5. Substância orgânica ou inorgânica e seus grupamentos.')
     print('9. Digitar uma nova fórmula de substância.')
     print('0. Finalizar o programa')
     linha()
@@ -49,6 +51,27 @@ def cabeçalhoop2():
     print(f'{"FÓRMULA DA SUBSTÂNCIA":<45}', end='')
     print('MASSA (u)')
     linha()
+
+def grupamentofuncional(grupamento):
+    for i, l in enumerate(grupamento):
+        try:
+            if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] != 'O':
+                print(i, l)
+                print('Álcool')
+            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
+                print(i, l)
+                print('Ácido carboxílico')
+            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C' or grupamento[i] == 'O' and grupamento[i-1] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'C':
+                print(i, l)
+                print('Éster')
+            if grupamento[i] == 'O' and grupamento[i-1] == 'C' or 'H' and grupamento[i-2] == 'C' or 'H' and grupamento[i+1] == 'C':
+                print(i, l)
+                print('Éter')
+        except IndexError:
+            pass
+
+
+   
 
     
     
