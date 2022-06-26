@@ -1,6 +1,3 @@
-from ast import Index
-from mendeleev import element
-
 def linha():
     print('\033[1;33m--\033[m'*30)
 
@@ -56,16 +53,12 @@ def grupamentofuncional(grupamento):
     for i, l in enumerate(grupamento):
         try:
             if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] != 'O':
-                print(i, l)
                 print('Álcool')
             if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
-                print(i, l)
                 print('Ácido carboxílico')
-            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C' or grupamento[i] == 'O' and grupamento[i-1] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'C':
-                print(i, l)
-                print('Éster')
-            if grupamento[i] == 'O' and grupamento[i-1] == 'C' or 'H' and grupamento[i-2] == 'C' or 'H' and grupamento[i+1] == 'C':
-                print(i, l)
+            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C' or grupamento[i] == 'C' and grupamento[i-1] == 'O' and grupamento[i-2] == 'O' and grupamento[i-3] != 'H':
+                print('Éster')                                                                        
+            if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-1] == 'C' or grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
                 print('Éter')
         except IndexError:
             pass

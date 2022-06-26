@@ -78,7 +78,6 @@ while True:
     for i, l in enumerate(formulacontagem):
         for i, l in enumerate(formulacontagem[i]):
             formulacontagem2.append(l)
-
     for i in formulacontagem2:
         if str(i).isalpha() == True and str(i).islower() == True:
             formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1] = [''.join(formulacontagem2[formulacontagem2.index(i)-1:formulacontagem2.index(i)+1])]
@@ -152,21 +151,12 @@ while True:
             for i in formulanome:
                 formulanome[0:len(formulanome)] = [''.join(formulanome[0:len(formulanome)])]
         elif escolha == 5:
-            grupamento = list()
-            join3 = list()
-            join4 = list()
-
             funções.linha()
             for i, l in enumerate(formulamostrada):
                 formulagrupamento = ''.join(formulamostrada[0:len(formulamostrada)])
-            #     if l == 'C':
-            #         join3.append(formula[i:len(formulamostrada)-1])
-            # join3 = ''.join(join3)
-            # print(join3)
             print(formulagrupamento)
             funções.grupamentofuncional(formulagrupamento)
                     
-            
         elif escolha == 9:
             funções.linha()
             break
