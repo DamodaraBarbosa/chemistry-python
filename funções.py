@@ -58,8 +58,14 @@ def grupamentofuncional(grupamento):
                 print('Ácido carboxílico')
             if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C' or grupamento[i] == 'C' and grupamento[i-1] == 'O' and grupamento[i-2] == 'O' and grupamento[i-3] != 'H':
                 print('Éster')                                                                        
-            if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-1] == 'C' or grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
+            if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
                 print('Éter')
+            if grupamento[i] == 'C' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'O' or grupamento[i] == '0' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'C':
+                print('Aldeído')
+            if grupamento[i] == 'O' and grupamento[i-1] == 'C':
+                print('Cetona') 
+            if grupamento[i] == 'N' and grupamento[i-1] == 'H' and grupamento[-2] == 'C' or grupamento[i] == 'N' and grupamento[i-1] == 'C':
+                print('Amina')
         except IndexError:
             pass
 

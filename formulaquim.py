@@ -109,6 +109,39 @@ while True:
             funções.linha()
 
         elif escolha == 2:
+            print(formula)
+            indexparenteses = list()
+            formulaparenteses = list()
+            formulaparentesesdef = list()
+
+            for i, l in enumerate(formula):
+                if l == '(':
+                    indexparenteses.append(i)
+                if l == ')':
+                    indexparenteses.append(i)
+            print(indexparenteses)
+            for i, l in enumerate(indexparenteses):
+                if l not in formulaparenteses:
+                    formulaparenteses.append(formula[l+1:])
+
+            print(formulaparenteses)
+
+            for i, l in enumerate(formulaparenteses):
+                for i in formulaparenteses[i]:
+                    if i not in formulaparentesesdef:
+                        formulaparentesesdef.append(i)
+            formulaparentesesdef.remove(')')  
+
+            print(formulaparentesesdef, '*')
+
+            indicesparenteses = list()
+            for i, l in enumerate(formulaparentesesdef):
+                if str(l).isnumeric() == True and l != formulaparentesesdef[len(formulaparentesesdef)-1]:
+                    multiply = int(l)*int(formulaparentesesdef[len(formulaparentesesdef)-1])
+                    indicesparenteses.append(multiply)
+            formulaparentesesdef.remove(f'{formulaparentesesdef[len(formulaparentesesdef)-1]}')
+            print(formulaparentesesdef)
+            print(indicesparenteses)
             funções.cabeçalhoop2()
 
             separator = ''
