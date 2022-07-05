@@ -15,9 +15,9 @@ def cabeçalho(form):
     print(f'\tOPÇÕES para substância {form}')
     linha2()
     print('1. Elementos contidos na fórmula e as suas propriedades.')
-    print('2. Massa molecular da substância.')
-    print('3. Quantos átomos há em cada elemento.')
-    print('4. Possível(is) nome(s) para a fórmula escrita.')
+    print('2. Quantos átomos há para cada elemento.')
+    print('3. Massa da espécie química.')
+    print('4. Natureza elétrica da espécie química.')
     print('5. Substância orgânica ou inorgânica e seus grupamentos.')
     print('9. Digitar uma nova fórmula de substância.')
     print('0. Finalizar o programa')
@@ -68,48 +68,3 @@ def grupamentofuncional(grupamento):
                 print('Amina')
         except IndexError:
             pass
-
-
-   
-
-    # indexparenteses = list()
-    #         formulaparenteses = list()
-    #         formulaparentesesdef = list()
-
-    #         for i, l in enumerate(formula):
-    #             if l == '(':
-    #                 indexparenteses.append(i)
-    #             if l == ')':
-    #                 indexparenteses.append(i)
-    #         print(indexparenteses)
-    #         for i, l in enumerate(indexparenteses):
-    #             if l not in formulaparenteses:
-    #                 formulaparenteses.append(formula[l+1:])
-
-    #         print(formulaparenteses)
-
-    #         for i, l in enumerate(formulaparenteses):
-    #             for i in formulaparenteses[i]:
-    #                 if i not in formulaparentesesdef:
-    #                     formulaparentesesdef.append(i)
-    #         formulaparentesesdef.remove(')')  
-
-    #         print(formulaparentesesdef, '*')
-
-    #         indicesparenteses = list()
-    #         for i, l in enumerate(formulaparentesesdef):
-    #             if str(l).isnumeric() == True and l != formulaparentesesdef[len(formulaparentesesdef)-1]:
-    #                 multiply = int(l)*int(formulaparentesesdef[len(formulaparentesesdef)-1])
-    #                 indicesparenteses.append(multiply)
-    #         formulaparentesesdef.remove(f'{formulaparentesesdef[len(formulaparentesesdef)-1]}')
-
-    #         print(formulaparentesesdef, '_')
-    #         print(indicesparenteses)
-
-    #         for i, l in enumerate(indicesparenteses):
-    #             for i, l in enumerate(formulaparentesesdef):
-    #                 if str(l).isdigit() == True:
-    #                     formulaparentesesdef.insert(indicesparenteses.index(f'{formulaparentesesdef[i]}'), l)
-    #         print(formulaparentesesdef)
-    
-
