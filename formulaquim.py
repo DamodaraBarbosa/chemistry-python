@@ -8,8 +8,9 @@ formuladados = list()
 formulacontagem = list()
 formulacontagem2 = list()
 formulacontagem3 = list()
+formula_parenteses = list()
 indexrepetidos = list()
-escolha = ''
+index_parenteses = list()
 
 while True:
 
@@ -19,12 +20,13 @@ while True:
     formulacontagem2.clear()
     formulacontagem3.clear()
     indexrepetidos.clear()
-
+    index_parenteses.clear()
+    
     formula = list(str(input('Digite a fórmula da substância química: ')).strip())
 
     if formula == ['9','9','9']:
         break
-
+    
     for i in formula:
         sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
         if i.isalpha() == True:
@@ -47,12 +49,12 @@ while True:
     cont = 0
     for i, l in enumerate(formula):
         if i == len(formula)-1 and formula[i].isalpha() == True:
-                    formula.append('1')
+            formula.append('1')
                 
     try:
         for i, l in enumerate(formula):
             if l.isalpha() == True and formula[formula.index(l)+1].isalpha() == True:
-                        indexrepetidos.append(i)
+                indexrepetidos.append(i)
     except:
         pass
 
@@ -66,15 +68,30 @@ while True:
     for i, l in enumerate(formula):
         if l.isnumeric() == True and formula[i-1].isnumeric() == True:
             formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
-        
+    
+    for i, l in enumerate(formula):
+        if l == '(' or l == ')':
+            index_parenteses.append(i)
+    
+    print(formula)
+    for i, l in enumerate(formula):
+        if i > min(index_parenteses) and l.isdigit() == True and i < max(index_parenteses):
+            multiplicacao_parenteses = int(formula[max(index_parenteses)+1])*int(l)
+            formula[i] = multiplicacao_parenteses
+    
+    formula.remove(f'{formula[len(formula)-1]}')
+    formula.remove('(')
+    formula.remove(')')
+                    
     try:
         for i, l in enumerate(formula):
+            print(i, l)
             if l.isalpha() == True:
                 res = str(l*int(formula[i+1]))
                 formulacontagem.append(res)
     except:
         pass
-
+    print(formulacontagem, '*')
     for i, l in enumerate(formulacontagem):
         for i, l in enumerate(formulacontagem[i]):
             formulacontagem2.append(l)
@@ -110,38 +127,7 @@ while True:
 
         elif escolha == 2:
             print(formula)
-            indexparenteses = list()
-            formulaparenteses = list()
-            formulaparentesesdef = list()
-
-            for i, l in enumerate(formula):
-                if l == '(':
-                    indexparenteses.append(i)
-                if l == ')':
-                    indexparenteses.append(i)
-            print(indexparenteses)
-            for i, l in enumerate(indexparenteses):
-                if l not in formulaparenteses:
-                    formulaparenteses.append(formula[l+1:])
-
-            print(formulaparenteses)
-
-            for i, l in enumerate(formulaparenteses):
-                for i in formulaparenteses[i]:
-                    if i not in formulaparentesesdef:
-                        formulaparentesesdef.append(i)
-            formulaparentesesdef.remove(')')  
-
-            print(formulaparentesesdef, '*')
-
-            indicesparenteses = list()
-            for i, l in enumerate(formulaparentesesdef):
-                if str(l).isnumeric() == True and l != formulaparentesesdef[len(formulaparentesesdef)-1]:
-                    multiply = int(l)*int(formulaparentesesdef[len(formulaparentesesdef)-1])
-                    indicesparenteses.append(multiply)
-            formulaparentesesdef.remove(f'{formulaparentesesdef[len(formulaparentesesdef)-1]}')
-            print(formulaparentesesdef)
-            print(indicesparenteses)
+            
             funções.cabeçalhoop2()
 
             separator = ''
@@ -184,6 +170,7 @@ while True:
             for i in formulanome:
                 formulanome[0:len(formulanome)] = [''.join(formulanome[0:len(formulanome)])]
         elif escolha == 5:
+            carbono_inorg = ['CO', 'CO2', 'H2CO3', 'HCN', 'CO3', 'CN', ]
             funções.linha()
             for i, l in enumerate(formulamostrada):
                 formulagrupamento = ''.join(formulamostrada[0:len(formulamostrada)])
