@@ -23,6 +23,33 @@ def cabeçalho(form):
     print('0. Finalizar o programa')
     linha()
 
+def funíon(mostrada):
+    for i, v in enumerate(mostrada):
+        if v == '+':
+            mostrada[i] = '⁺'
+        elif v == '-':
+            mostrada[i] = '⁻'
+        if str(v) == '₁' and mostrada[i-1] == '⁺' or str(v) == '₁' and mostrada[i-1] == '⁻':
+            mostrada[i] = '¹'
+        elif str(v) == '₂' and mostrada[i-1] == '⁺' or str(v) == '₂' and mostrada[i-1] == '⁻':
+            mostrada[i] = '²'
+        elif str(v) == '₃' and mostrada[i-1] == '⁺' or str(v) == '₃' and mostrada[i-1] == '⁻':
+            mostrada[i] = '³'
+        elif str(v) == '₄' and mostrada[i-1] == '⁺' or str(v) == '₄' and mostrada[i-1] == '⁻':
+            mostrada[i] = '⁴'
+        elif str(v) == '₅' and mostrada[i-1] == '⁺' or str(v) == '₅' and mostrada[i-1] == '⁻':
+            mostrada[i] = '⁵'
+        elif str(v) == '₆' and mostrada[i-1] == '⁺' or str(v) == '₆' and mostrada[i-1] == '⁻':
+            mostrada[i] = '⁶'
+        elif str(v) == '₇' and mostrada[i-1] == '⁺' or str(v) == '₇' and mostrada[i-1] == '⁻':
+            mostrada[i] = '⁷'
+        elif str(v) == '₈' and mostrada[i-1] == '⁺' or str(v) == '₈' and mostrada[i-1] == '⁻':
+            mostrada[i] = '⁸'
+        elif str(v) == '₉' and mostrada[i-1] == '⁺' or str(v) == '₉' and mostrada[i-1] == '⁻':
+            mostrada[i] = '⁹'
+        # print(mostrada)
+
+
 def cabeçalhoop1():
     linha2()
     print(f'{"PROPRIEDADES DOS ELEMENTOS":>42}')

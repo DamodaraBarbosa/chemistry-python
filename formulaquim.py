@@ -27,15 +27,46 @@ while True:
     if formula == ['9','9','9']:
         break
     
-    for i in formula:
-        sub = str.maketrans("0123456789", "₀₁₂₃₄₅₆₇₈₉")
-        if i.isalpha() == True:
-            formula_mostrada.append(i)
-        elif i.isdigit() == True:
-            formula_mostrada.append(i.translate(sub))
+    for i, v in enumerate(formula):
+        sub = str.maketrans('0123456789', '₀₁₂₃₄₅₆₇₈₉')
+        if v.isalpha() == True:
+            formula_mostrada.append(v)
+        elif v.isdigit() == True and formula[i-1] != '+' or v.isdigit() == True and formula[i-1] != '-':
+            formula_mostrada.append(v.translate(sub))
+            
         else:
-            formula_mostrada.append(i)
+            formula_mostrada.append(v)
 
+    funções.funíon(formula_mostrada)
+    
+    # for i, v in enumerate(formula_mostrada):
+    #     sob = str.maketrans('₀₁₂₃₄₅₆₇₈₉+-', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻')
+    #     if v == '+':
+    #         formula_mostrada[i] = '⁺'
+    #     elif v == '-':
+    #         formula_mostrada[i] = '⁻'
+    #     if str(v) == '₂' and formula_mostrada[i-1] == '⁺' or str(v) == '₂' and formula_mostrada[i-1] == '⁻':
+    #         formula_mostrada[i] = '²'
+        # sob = str.maketrans('0123456789+-', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻')
+        # if formula[i] == '+':
+        #     formula = v.translate
+
+
+
+        # elif l == '+' or '-' and formula[i+1].isdigit() == True:
+        #     formula_mostrada.append(formula[i+1].translate(sup))
+        # elif l.isdigit() == True:
+        #     formula_mostrada.append(l.translate(sub))   
+        # elif l.isdigit() == True and formula[i+1] != '+' or '-':
+        #     formula_mostrada.append(l.translate(sub))
+        # elif l.isdigit() == True and formula[i+1] == '+' or  '-':
+        #     formula_mostrada.append(formula[i].translate(sup))
+        # elif l == '+' or '-':
+        #     print(l)
+        #     formula_mostrada.append(l.translate(sup))
+        # else:
+        #     formula_mostrada.append(i)
+    
     separator = ''
     funções.cabeçalho(separator.join(formula_mostrada))
 
@@ -47,36 +78,36 @@ while True:
             formula_dados.append(i)
     
     cont = 0
-    for i, l in enumerate(formula):
+    for i, v in enumerate(formula):
         if i == len(formula)-1 and formula[i].isalpha() == True:
             formula.append('1')
  
     try:
-        for i, l in enumerate(formula):
-            if l.isalpha() == True and formula[formula.index(l)+1].isalpha() == True:
+        for i, v in enumerate(formula):
+            if v.isalpha() == True and formula[formula.index(v)+1].isalpha() == True:
                 index_repetidos.append(i)
     except:
         pass
 
-    for i, l in enumerate(index_repetidos):
+    for i, v in enumerate(index_repetidos):
         cont += 1
         if i == 0:
             formula.insert(index_repetidos[i]+1, '1')
         else:                    
             formula.insert(index_repetidos[i]+cont, '1')
 
-    for i, l in enumerate(formula):
-        if l.isnumeric() == True and formula[i-1].isnumeric() == True:
+    for i, v in enumerate(formula):
+        if v.isnumeric() == True and formula[i-1].isnumeric() == True:
             formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
     
     try:
-        for i, l in enumerate(formula):
-            if l == '(' or l == ')':
+        for i, v in enumerate(formula):
+            if v == '(' or v == ')':
                 index_parenteses.append(i)
         
-        for i, l in enumerate(formula):
-            if i > min(index_parenteses) and l.isdigit() == True and i < max(index_parenteses):
-                multiplicacao_parenteses = int(formula[max(index_parenteses)+1])*int(l)
+        for i, v in enumerate(formula):
+            if i > min(index_parenteses) and v.isdigit() == True and i < max(index_parenteses):
+                multiplicacao_parenteses = int(formula[max(index_parenteses)+1])*int(v)
                 formula[i] = multiplicacao_parenteses
 
         formula.remove(f'{formula[len(formula)-1]}')
@@ -84,28 +115,28 @@ while True:
         formula.remove(')')
 
         try:
-            for i, l in enumerate(formula):
+            for i, v in enumerate(formula):
                 if formula[0].isalpha() == True and formula[1].isalpha() == True:
                     formula.insert(1, '1')
         except AttributeError:
             pass
 
-        for i, l in enumerate(formula):
-            if type(l) == int:
-                formula[i] = str(l)
+        for i, v in enumerate(formula):
+            if type(v) == int:
+                formula[i] = str(v)
     except ValueError:
         pass
     try:
-        for i, l in enumerate(formula):
-            if l.isalpha() == True:
-                res = str(l*int(formula[i+1]))
+        for i, v in enumerate(formula):
+            if v.isalpha() == True:
+                res = str(v*int(formula[i+1]))
                 formula_contagem.append(res)
     except:
         pass
 
-    for i, l in enumerate(formula_contagem):
-        for i, l in enumerate(formula_contagem[i]):
-            formula_contagem_2.append(l)
+    for i, v in enumerate(formula_contagem):
+        for i, v in enumerate(formula_contagem[i]):
+            formula_contagem_2.append(v)
     for i in formula_contagem_2:
         if str(i).isalpha() == True and str(i).islower() == True:
             formula_contagem_2[formula_contagem_2.index(i)-1:formula_contagem_2.index(i)+1] = [''.join(formula_contagem_2[formula_contagem_2.index(i)-1:formula_contagem_2.index(i)+1])]
@@ -182,7 +213,7 @@ while True:
         elif escolha == 5:
             carbono_inorg = ['CO', 'CO2', 'H2CO3', 'HCN', 'CO3', 'CN', ]
             funções.linha()
-            for i, l in enumerate(formula_mostrada):
+            for i, v in enumerate(formula_mostrada):
                 formulagrupamento = ''.join(formula_mostrada[0:len(formula_mostrada)])
             print(formulagrupamento)
             funções.grupamentofuncional(formulagrupamento)
