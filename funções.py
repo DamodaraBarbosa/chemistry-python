@@ -47,7 +47,30 @@ def funíon(mostrada):
             mostrada[i] = '⁸'
         elif str(v) == '₉' and mostrada[i-1] == '⁺' or str(v) == '₉' and mostrada[i-1] == '⁻':
             mostrada[i] = '⁹'
-        # print(mostrada)
+
+def valencia(formulaion):
+    for i, v in enumerate(formulaion):
+        if v == '+' or v == '-':
+            carga = v
+        if i == len(formulaion)-1 and v == '1':
+            print(f'monovalente ({carga}1)')
+        elif i == len(formulaion)-1 and v == '2':
+            print(f'bivalente  ({carga}2)')
+        elif i == len(formulaion)-1 and v == '3':
+            print(f'trivalente ({carga}3)')
+        elif i == len(formulaion)-1 and v == '4':
+            print(f'tetravalente ({carga}4)')
+        elif i == len(formulaion)-1 and v == '5':
+            print(f'pentavalente ({carga}5)')
+        elif i == len(formulaion)-1 and v == '6':
+            print(f'hexavalente ({carga}6)')
+        elif i == len(formulaion)-1 and v == '7':
+            print(f'heptavalente ({carga}7)')
+        elif i == len(formulaion)-1 and v == '8':
+            print(f'octavalente ({carga}8)')
+        elif i == len(formulaion)-1 and v == '9':
+            print(f'nonavalente ({carga}9)')
+            
 
 
 def cabeçalhoop1():
@@ -76,8 +99,18 @@ def cabeçalhoop2():
     print('MASSA (u)')
     linha()
 
+
+def cabeçalhoop4(formulasobrescrita):
+    linha2()
+    print(f'{"NATUREZA ELÉTRICA":>36}')
+    linha2()
+    print(f'{"ESPÉCIE QUÍMICA":<50}', end='')
+    print(formulasobrescrita)
+    linha()
+
+
 def grupamentofuncional(grupamento):
-    for i, l in enumerate(grupamento):
+    for i, v in enumerate(grupamento):
         try:
             if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] != 'O':
                 print('Álcool')

@@ -39,34 +39,6 @@ while True:
 
     funções.funíon(formula_mostrada)
     
-    # for i, v in enumerate(formula_mostrada):
-    #     sob = str.maketrans('₀₁₂₃₄₅₆₇₈₉+-', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻')
-    #     if v == '+':
-    #         formula_mostrada[i] = '⁺'
-    #     elif v == '-':
-    #         formula_mostrada[i] = '⁻'
-    #     if str(v) == '₂' and formula_mostrada[i-1] == '⁺' or str(v) == '₂' and formula_mostrada[i-1] == '⁻':
-    #         formula_mostrada[i] = '²'
-        # sob = str.maketrans('0123456789+-', '⁰¹²³⁴⁵⁶⁷⁸⁹⁺⁻')
-        # if formula[i] == '+':
-        #     formula = v.translate
-
-
-
-        # elif l == '+' or '-' and formula[i+1].isdigit() == True:
-        #     formula_mostrada.append(formula[i+1].translate(sup))
-        # elif l.isdigit() == True:
-        #     formula_mostrada.append(l.translate(sub))   
-        # elif l.isdigit() == True and formula[i+1] != '+' or '-':
-        #     formula_mostrada.append(l.translate(sub))
-        # elif l.isdigit() == True and formula[i+1] == '+' or  '-':
-        #     formula_mostrada.append(formula[i].translate(sup))
-        # elif l == '+' or '-':
-        #     print(l)
-        #     formula_mostrada.append(l.translate(sup))
-        # else:
-        #     formula_mostrada.append(i)
-    
     separator = ''
     funções.cabeçalho(separator.join(formula_mostrada))
 
@@ -76,19 +48,27 @@ while True:
     for i in formula:
         if i.isalpha() == True and i not in formula_dados:
             formula_dados.append(i)
-    
-    cont = 0
     for i, v in enumerate(formula):
-        if i == len(formula)-1 and formula[i].isalpha() == True:
-            formula.append('1')
- 
+        try:
+            if i == len(formula)-1 and formula[i].isalpha() == True:
+                formula.append('1')
+        except AttributeError:
+            pass
+        if i == len(formula)-2 and formula[i].isalpha() == True and formula[i+1] == '+':
+            formula.append(formula.insert(formula.index('+'), '1'))
+        if i == len(formula)-2 and formula[i].isalpha() == True and formula[i+1] == '-':
+            formula.append(formula.insert(formula.index('-'), '1'))
+        if formula[len(formula)-1] == None and formula[len(formula)-2] == '+' or formula[len(formula)-1] == None and formula[len(formula)-2] == '-':
+            formula[len(formula)-1] = '1'        
+
     try:
         for i, v in enumerate(formula):
             if v.isalpha() == True and formula[formula.index(v)+1].isalpha() == True:
                 index_repetidos.append(i)
     except:
         pass
-
+    
+    cont = 0
     for i, v in enumerate(index_repetidos):
         cont += 1
         if i == 0:
@@ -97,9 +77,11 @@ while True:
             formula.insert(index_repetidos[i]+cont, '1')
 
     for i, v in enumerate(formula):
-        if v.isnumeric() == True and formula[i-1].isnumeric() == True:
-            formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
-    
+        try:
+            if v.isnumeric() == True and formula[i-1].isnumeric() == True:
+                formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
+        except AttributeError:
+            pass 
     try:
         for i, v in enumerate(formula):
             if v == '(' or v == ')':
@@ -184,7 +166,6 @@ while True:
 
         elif escolha == 2:
             funções.cabeçalhoop3()
-
             for i in formula_contagem_3:
                 el = element(f'{i}')
                 translator = Translator()
@@ -192,24 +173,22 @@ while True:
                 print(f'{t.text:<30}', end='')
                 print(formula_contagem_2.count(i))
             funções.linha()
-        elif escolha == 4:
-            
-            formulanome = list()
 
-            for i in formula_mostrada:
-                sub = str.maketrans("₀₁₂₃₄₅₆₇₈₉", "0123456789")
-                if i.isalpha() == True:
-                    formulanome.append(i)
-                elif i.isdigit() == True:
-                    formulanome.append(i.translate(sub))
-                else:
-                    formulanome.append(i)
-            cs = ChemSpider('r7nxDXgiGYxrON5yPSjop7PgqAvaPiR2')
-            resultado = cs.search(formulanome)
-            print(resultado)
-            
-            for i in formulanome:
-                formulanome[0:len(formulanome)] = [''.join(formulanome[0:len(formulanome)])]
+        elif escolha == 4:
+            funções.cabeçalhoop4(''.join(formula_mostrada[0:]))
+            if '+' not in formula and '-' not in formula:
+                print('A espécie química é eletricamente neutra.')
+            else:
+                for i in formula:
+                    if i == '+' or i == '-':
+                        print('É um íon.')
+                    if i == '+':
+                        print('\033[1;31mCátion\033[m', end=' ')
+                    if i == '-':
+                        print('\033[1;34mÂnion\033[m', end=' ')
+                funções.valencia(formula)
+            funções.linha()
+
         elif escolha == 5:
             carbono_inorg = ['CO', 'CO2', 'H2CO3', 'HCN', 'CO3', 'CN', ]
             funções.linha()
