@@ -1,3 +1,6 @@
+from sqlalchemy import values
+
+
 def linha():
     print('\033[1;33m--\033[m'*30)
 
@@ -70,7 +73,25 @@ def valencia(formulaion):
             print(f'octavalente ({carga}8)')
         elif i == len(formulaion)-1 and v == '9':
             print(f'nonavalente ({carga}9)')
-            
+
+
+def nomenclaturaíon(formulaion):
+    nomenclatura_cátions = [{'cátion': 'Li⁺', 'nomenclatura': 'lítio'}, {'cátion': 'Na⁺', 'nomenclatura': 'sódio'}, {'cátion': 'K⁺', 'nomenclatura': 'potássio'}, {'cátion': 'Rb⁺', 'nomenclatura': 'rubídio'}, {'cátion': 'Cs⁺', 'nomenclatura': 'césio'}, {'cátion': 'Fr⁺', 'nomenclatura': 'frâncio'}, {'cátion': 'Ag⁺', 'nomenclatura': 'prata'}, {'cátion': 'Cu⁺', 'nomenclatura': 'cobre ou cuproso'}, {'cátion': 'Au⁺', 'nomenclatura': 'ouro'}, {'cátion': 'NH₄⁺', 'nomenclatura': 'amônio'}, {'cátion': 'Be⁺²', 'nomenclatura': 'berílio'}, {'cátion': 'Mg⁺²', 'nomenclatura': 'magnésio'}, {'cátion': 'Ca⁺²', 'nomenclatura': 'cálcio'}, {'cátion': 'Sr⁺²', 'nomenclatura': 'estrôncio'}, {'cátion': 'Ba⁺²', 'nomenclatura': 'bário'}, {'cátion': 'Rd⁺²', 'nomenclatura': 'rádio'}, {'cátion': 'Zn⁺²', 'nomenclatura': 'zinco'}, {'cátion': 'Cd⁺²', 'nomenclatura': 'cádmio'}, {'cátion': 'Cu⁺²', 'nomenclatura': 'cobre (II) ou cupríco'}, {'cátion': 'Hg⁺²', 'nomenclatura': 'mercúrio (II) ou mercúrico'}, {'cátion': 'Fe⁺²', 'nomenclatura': 'ferro (II) ou ferroso'}, {'cátion': 'Co⁺²', 'nomenclatura': 'cobalto'}, 
+    {'cátion': 'Ni⁺²', 'nomenclatura': 'níquel (II) ou niqueloso'}, {'cátion': 'Cr⁺²', 'nomenclatura': 'cromo (II) ou cromoso'}, {'cátion': 'Mn⁺²', 'nomenclatura': 'manganês (II) ou manganoso'}, {'cátion': 'Sn⁺²', 'nomenclatura': 'estanho(II) ou estanhoso'}, {'cátion': 'Pb⁺²', 'nomenclatura': 'chumbo (II) ou plumboso'}, {'cátion': 'Ti⁺²', 'nomenclatura': 'titânio (II) ou titanoso'}, {'cátion': 'Pt⁺²', 'nomenclatura': 'platina (II) ou platinoso'}, {'cátion': 'Al⁺³', 'nomenclatura': 'alumínio'}, {'cátion': 'Bi⁺³', 'nomenclatura': 'bismuto'}, {'cátion': 'Au⁺³', 'nomenclatura': 'ouro (III) ou áurico'}, {'cátion': 'Fe⁺³', 'nomenclatura': 'ferro (III) ou férrico'}, {'cátion': 'Co⁺³', 'nomenclatura': 'cobalto (III) ou cobáltico'}, {'cátion': 'Ni⁺³', 'nomenclatura': 'níquel (III) ou niquélico'}, {'cátion': 'Cr⁺³', 'nomenclatura': 'cromo (III) ou crômico'}, {'cátion': 'Sn⁺⁴', 'nomenclatura': 'estanho (IV) ou estânico'}, {'cátion': 'Pb⁺⁴', 'nomenclatura': 'chumbo (IV) ou plúmbico'}, {'cátion': 'Ti⁺⁴', 'nomenclatura': 'titânio (IV) ou titânico'}, {'cátion': 'Pt⁺⁴', 'nomenclatura': 'platina (IV) ou platínico'}, 
+    {'cátion': 'Mn⁺⁴', 'nomenclatura': 'manganês (IV) ou mangânico'}, {'cátion': 'Cr⁺⁶', 'nomenclatura':'cromo (VI)'}]
+    nomenclatura_ânions = [{'ânion': 'F⁻', 'nomenclatura': 'fluoreto'}, {'ânion': 'Cl⁻', 'nomenclatura': 'cloreto'}, {'ânion': 'Br⁻', 'nomenclatura': 'brometo'}, {'ânion': 'I⁻', 'nomenclatura': 'iodeto'}, {'ânion': 'ClO⁻', 'nomenclatura': 'hipoclorito'}, {'ânion': 'ClO₂⁻', 'nomenclatura': 'clorito'}, {'ânion': 'ClO₃⁻', 'nomenclatura': 'clorato'}, {'ânion': 'ClO₄⁻', 'nomenclatura': 'perclorato'}, {'ânion': 'BrO⁻', 'nomenclatura': 'hipobromito'}, {'ânion': 'BrO₃⁻', 'nomenclatura': 'bromato'}, {'ânion': 'IO⁻', 'nomenclatura': 'hipoiodito'}, {'ânion': 'IO₃⁻', 'nomenclatura': 'iodato'}, {'ânion': 'IO₄⁻', 'nomenclatura': 'periodato'}, {'ânion': 'CN⁻', 'nomenclatura': 'cianeto'}, {'ânion': 'CNO⁻', 'nomenclatura': 'cianato'}, {'ânion': 'CNS⁻', 'nomenclatura': 'tiocianato'}, {'ânion': 'CH₃COO⁻', 'nomenclatura': 'acetato'}, {'ânion': 'C₂H₃O₂⁻', 'nomenclatura': 'acetato'}, {'ânion': 'CO₃⁻²', 'nomenclatura': 'carbonato'}, {'ânion': 'HCO⁻²', 'nomenclatura': 'formiato'},  {'ânion': 'HCO₃⁻', 'nomenclatura': 'bicarbonato'}, {'ânion': 'C₂O₄⁻²', 'nomenclatura': 'oxalato'}, {'ânion': 'C₂⁻²', 'nomenclatura': 'carbeto ou acetileto'}, 
+    {'ânion': 'C⁻⁴', 'nomenclatura': 'carbeto ou metileto'}, {'ânion': 'NO₂⁻', 'nomenclatura': 'nitrito'}, {'ânion': 'NO₃⁻', 'nomenclatura': 'nitrato'}, {'ânion': 'N₃⁻', 'nomenclatura': 'azoteto ou azida'}, {'ânion': 'N⁻³', 'nomenclatura': 'nitreto'}, {'ânion': 'PO₃⁻', 'nomenclatura': 'metafosfato'}, {'ânion': 'H₂PO₂⁻', 'nomenclatura': 'hipofosfito'}, {'ânion': 'HPO₃⁻²', 'nomenclatura': 'fosfito'}, {'ânion': 'PO₄⁻³', 'nomenclatura': 'fosfato'}, {'ânion': 'P⁻³', 'nomenclatura': 'fosfeto'}, {'ânion': 'P₂O₇⁻⁴', 'nomenclatura': 'pirofosfato'}, {'ânion': 'P₂O⁻⁴', 'nomenclatura': 'hipofosfato'}, {'ânion': 'S⁻²', 'nomenclatura': 'sulfeto'}, {'ânion': 'SO₄⁻²', 'nomenclatura': 'sulfato'}, {'ânion': 'SO₃⁻²', 'nomenclatura': 'sulfito'}, {'ânion': 'S₂O₃⁻²', 'nomenclatura': 'tiossulfato'}, {'ânion': 'S₂O₄⁻²', 'nomenclatura': 'hipossulfito'}, {'ânion': 'S₂O₈⁻²', 'nomenclatura': 'persulfato'}, {'ânion': 'S₄O₆⁻²', 'nomenclatura': 'tetrationato'}, {'ânion': 'MnO₄⁻', 'nomenclatura': 'permanganato'}, {'ânion': 'MnO₄⁻²', 'nomenclatura': 'manganato'}, {'ânion': 'MnO₃⁻²', 'nomenclatura': 'tetrationato'}, {'ânion': 'OH⁻', 'nomenclatura': 'hidróxido'}, 
+    {'ânion': 'H⁻', 'nomenclatura': 'hidreto'}, {'ânion': 'O⁻²', 'nomenclatura': 'óxido'}, {'ânion': 'CrO₄⁻²', 'nomenclatura': 'cromato'}, {'ânion': 'Cr₂O₇⁻²', 'nomenclatura': 'dicromato'}, {'ânion': 'AsO₃⁻³', 'nomenclatura': 'arsenito'}, {'ânion': 'AsO₄⁻³', 'nomenclatura': 'arsenato'}, {'ânion': 'BO₃⁻³', 'nomenclatura': 'borato'}, {'ânion': 'B₄O₇⁻²', 'nomenclatura': 'tetraborato'}, {'ânion': 'SiO₄⁻⁴', 'nomenclatura': 'silicato'}]
+    
+    if '⁺' in formulaion:
+        for i, v in enumerate(nomenclatura_cátions):
+            if formulaion == v['cátion']:
+                print(f'O íon {v["cátion"]} é chamado de cátion {v["nomenclatura"]}.')
+    if '⁻' in formulaion:
+        for i, v in enumerate(nomenclatura_ânions):
+            if formulaion == v['ânion']:
+                print(f'O íon {v["ânion"]} é chamado de ânion {v["nomenclatura"]}.')
+        
 
 
 def cabeçalhoop1():

@@ -23,7 +23,7 @@ while True:
     index_parenteses.clear()
     
     formula = list(str(input('Digite a fórmula da substância química: ')).strip())
-
+    
     if formula == ['9','9','9']:
         break
     
@@ -43,7 +43,7 @@ while True:
     funções.cabeçalho(separator.join(formula_mostrada))
 
     for i in formula:
-        if i.isalpha() == True and i.islower():
+        if i.isalpha() == True and i.islower() == True:
             formula[formula.index(i)-1:formula.index(i)+1] = [''.join(formula[formula.index(i)-1:formula.index(i)+1])]
     for i in formula:
         if i.isalpha() == True and i not in formula_dados:
@@ -60,7 +60,9 @@ while True:
             formula.append(formula.insert(formula.index('-'), '1'))
         if formula[len(formula)-1] == None and formula[len(formula)-2] == '+' or formula[len(formula)-1] == None and formula[len(formula)-2] == '-':
             formula[len(formula)-1] = '1'        
-
+        if formula[i].isalpha() == True and formula[i+1] == ')':
+            print(formula[i])
+            formula.insert(formula.index(f'{formula[i+1]}'), '1')
     try:
         for i, v in enumerate(formula):
             if v.isalpha() == True and formula[formula.index(v)+1].isalpha() == True:
@@ -91,11 +93,12 @@ while True:
             if i > min(index_parenteses) and v.isdigit() == True and i < max(index_parenteses):
                 multiplicacao_parenteses = int(formula[max(index_parenteses)+1])*int(v)
                 formula[i] = multiplicacao_parenteses
-
-        formula.remove(f'{formula[len(formula)-1]}')
-        formula.remove('(')
-        formula.remove(')')
-
+        try:
+            formula.remove(f'{formula[len(formula)-1]}')
+            formula.remove('(')
+            formula.remove(')')
+        except AttributeError:
+            pass
         try:
             for i, v in enumerate(formula):
                 if formula[0].isalpha() == True and formula[1].isalpha() == True:
@@ -188,14 +191,28 @@ while True:
                         print('\033[1;34mÂnion\033[m', end=' ')
                 funções.valencia(formula)
             funções.linha()
+            funções.nomenclaturaíon(''.join(formula_mostrada[0:]))
+            funções.linha()
 
         elif escolha == 5:
-            carbono_inorg = ['CO', 'CO2', 'H2CO3', 'HCN', 'CO3', 'CN', ]
-            funções.linha()
-            for i, v in enumerate(formula_mostrada):
-                formulagrupamento = ''.join(formula_mostrada[0:len(formula_mostrada)])
-            print(formulagrupamento)
-            funções.grupamentofuncional(formulagrupamento)
+            print(formula,';')
+            formula = ''.join(formula[0:])
+            print(formula,'<')
+            if 'C' not in formula:
+                print('Espécie química inorgânica.', '*')
+            else:
+                carbono_inorg = ['C1O1', 'C1O2', 'H2C1O3', 'H1C1N1', 'C1O3', 'C1N1', ]
+                if formula in carbono_inorg:
+                    print('Espécie química inorgânica.', '%')
+                elif ['C','1','N','1'] or ['C','1','O','3'] in formula:
+                    print('Espécie química inorgânica.', '#')
+                else:
+                    print('Espécie química orgânica.')
+                    for i, v in enumerate(formula_mostrada):
+                        formulagrupamento = ''.join(formula_mostrada[0:len(formula_mostrada)])
+            # print(formulagrupamento)
+            # funções.grupamentofuncional(formulagrupamento)
+            # funções.linha()
                     
         elif escolha == 9:
             funções.linha()
