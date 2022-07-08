@@ -1,7 +1,8 @@
+import enum
 import funções
 from mendeleev import element
 from googletrans import Translator
-from chemspipy import ChemSpider
+from chemspipy import ChemSpider 
 
 formula_mostrada = list()
 formula_dados = list()
@@ -194,16 +195,33 @@ while True:
             funções.linha()
 
         elif escolha == 5:
-            print(formula,';')
-            formula = ''.join(formula[0:])
-            print(formula,'<')
             if 'C' not in formula:
                 print('Espécie química inorgânica.', '*')
             else:
-                carbono_inorg = ['C1O1', 'C1O2', 'H2C1O3', 'H1C1N1', 'C1O3', 'C1N1', ]
+                index_carbono = []
+                formula = list(formula)
+
+                # for i, v in enumerate(formula):
+                #     try:
+                #         if formula[i].isalpha() == True and formula[i+1].islower() == True:
+                #             formula[i-1:i+1] = ''.join(formula[i-1:i+1])
+                #     except IndexError:
+                #         pass
+                # print(formula, '/')
+
+                
+                carbono_inorg = [['C','1','O', '1'], ['C', '1', 'O', '2'], ['H', '2', 'C', '1', 'O', '3'], ['H', '1', 'C', '1', 'N', '1'], ['C', '1','O', '3'], ['C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '3'], ['O', 'C', 'N'], ['C', '2', 'O', '4']]
+                for i, v in enumerate(formula):
+                    if v == 'C':
+                        print(i)
+                        formula = formula[i:]
+                print(formula, 'inorg')
+                        # index_carbono.append(i)
+                # print(index_carbono)
+                # formula = formula[]
                 if formula in carbono_inorg:
                     print('Espécie química inorgânica.', '%')
-                elif ['C','1','N','1'] or ['C','1','O','3'] in formula:
+                elif formula in carbono_inorg:
                     print('Espécie química inorgânica.', '#')
                 else:
                     print('Espécie química orgânica.')
