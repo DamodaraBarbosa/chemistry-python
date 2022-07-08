@@ -85,14 +85,15 @@ def nomenclaturaíon(formulaion):
             for i, v in enumerate(nomenclatura_cátions):
                 if formulaion == v['cátion']:
                     print(f'O íon {v["cátion"]} é chamado de cátion {v["nomenclatura"]}.')
-        if '⁻' in formulaion:
+        elif '⁻' in formulaion:
             for i, v in enumerate(nomenclatura_ânions):
                 if formulaion == v['ânion']:
                     print(f'O íon {v["ânion"]} é chamado de ânion {v["nomenclatura"]}.')
-        if formulaion not in nomenclatura_cátions and formulaion not in nomenclatura_ânions:
+        elif formulaion not in nomenclatura_cátions and formulaion not in nomenclatura_ânions:
             print('O íon digitado não existe ou não se encontra no banco de dados.')
-            
-
+    else:
+        print(f'A espécie química {formulaion} é eletricamente neutra.')
+    
 
 def cabeçalhoop1():
     linha2()
