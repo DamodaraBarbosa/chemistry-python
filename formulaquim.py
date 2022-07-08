@@ -156,9 +156,18 @@ while True:
                 print(f'{i.atomic_number:<26}', end='    ')
                 print(f'{i.atomic_weight:.2f}')
             funções.linha()
-
-        elif escolha == 3:
-            
+        
+        elif escolha == 2:
+            funções.cabeçalhoop3()
+            for i in formula_contagem_3:
+                el = element(f'{i}')
+                translator = Translator()
+                t = translator.translate(f'{el.name}', src= 'en', dest='pt')
+                print(f'{t.text:<30}', end='')
+                print(formula_contagem_2.count(i))
+            funções.linha()
+        
+        elif escolha == 3:            
             funções.cabeçalhoop2()
 
             separator = ''
@@ -170,16 +179,6 @@ while True:
                 mass = elem.atomic_weight*formula_contagem_2.count(i)
                 massacumulador += mass
             print(f'{massacumulador:.2f}')
-            funções.linha()
-
-        elif escolha == 2:
-            funções.cabeçalhoop3()
-            for i in formula_contagem_3:
-                el = element(f'{i}')
-                translator = Translator()
-                t = translator.translate(f'{el.name}', src= 'en', dest='pt')
-                print(f'{t.text:<30}', end='')
-                print(formula_contagem_2.count(i))
             funções.linha()
 
         elif escolha == 4:
@@ -200,24 +199,24 @@ while True:
             funções.linha()
 
         elif escolha == 5:
-            print(formula, '*')
+            funções.nomeclaturainorg(formula)
             if 'C' not in formula:
-                print('Espécie química inorgânica.', '*')
+                print('Espécie química inorgânica.')
             else:
                 index_carbono = list()
                 formula = list(formula)
-                print(formula, '!')
-                carbono_inorg = [['C', '1', 'O', '1'], ['C', '1', 'O', '2'], ['H', '2', 'C', '1', 'O', '3'], ['H', '1', 'C', '1', 'N', '1'], ['C', '1','O', '3'], ['C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '3'], ['O', '1', 'C', '1', 'N', '1'], ['C', '2', 'O', '4'], ['S', '1', 'C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '1'], ['C'], ['C', '2']]
+                
+                carbono_inorg = [['C', '1', 'O', '1'], ['C', '1', 'O', '2'], ['H', '2', 'C', '1', 'O', '3'], ['H', '1', 'C', '1', 'N', '1'], ['C', '1','O', '3'], ['C', '1', 'N', '1'], 
+                ['H', '1', 'C', '1', 'O', '3'], ['O', '1', 'C', '1', 'N', '1'], ['C', '2', 'O', '4'], ['S', '1', 'C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '1'], ['C', '1'], ['C', '2']]
+                
                 for i, v in enumerate(formula):
                     if formula.count('C') == 1 and função_parêntese == []:
                         formula = formula[formula.index('C'):]
-                print(formula, '¨¨')
                 if formula in carbono_inorg:
-                    print('Espécie química inorgânica.', '%')
+                    print('Espécie química inorgânica.')
                 elif função_parêntese != []:
-                    print(função_parêntese, '@')
                     if função_parêntese in carbono_inorg:
-                        print('Espécie química inorgânica.', '#')
+                        print('Espécie química inorgânica.')
                 else:
                     print('Espécie química orgânica.')
                     for i, v in enumerate(formula_mostrada):
