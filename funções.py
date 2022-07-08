@@ -83,15 +83,18 @@ def nomenclaturaíon(formulaion):
     {'ânion': 'C⁻⁴', 'nomenclatura': 'carbeto ou metileto'}, {'ânion': 'NO₂⁻', 'nomenclatura': 'nitrito'}, {'ânion': 'NO₃⁻', 'nomenclatura': 'nitrato'}, {'ânion': 'N₃⁻', 'nomenclatura': 'azoteto ou azida'}, {'ânion': 'N⁻³', 'nomenclatura': 'nitreto'}, {'ânion': 'PO₃⁻', 'nomenclatura': 'metafosfato'}, {'ânion': 'H₂PO₂⁻', 'nomenclatura': 'hipofosfito'}, {'ânion': 'HPO₃⁻²', 'nomenclatura': 'fosfito'}, {'ânion': 'PO₄⁻³', 'nomenclatura': 'fosfato'}, {'ânion': 'P⁻³', 'nomenclatura': 'fosfeto'}, {'ânion': 'P₂O₇⁻⁴', 'nomenclatura': 'pirofosfato'}, {'ânion': 'P₂O⁻⁴', 'nomenclatura': 'hipofosfato'}, {'ânion': 'S⁻²', 'nomenclatura': 'sulfeto'}, {'ânion': 'SO₄⁻²', 'nomenclatura': 'sulfato'}, {'ânion': 'SO₃⁻²', 'nomenclatura': 'sulfito'}, {'ânion': 'S₂O₃⁻²', 'nomenclatura': 'tiossulfato'}, {'ânion': 'S₂O₄⁻²', 'nomenclatura': 'hipossulfito'}, {'ânion': 'S₂O₈⁻²', 'nomenclatura': 'persulfato'}, {'ânion': 'S₄O₆⁻²', 'nomenclatura': 'tetrationato'}, {'ânion': 'MnO₄⁻', 'nomenclatura': 'permanganato'}, {'ânion': 'MnO₄⁻²', 'nomenclatura': 'manganato'}, {'ânion': 'MnO₃⁻²', 'nomenclatura': 'tetrationato'}, {'ânion': 'OH⁻', 'nomenclatura': 'hidróxido'}, 
     {'ânion': 'H⁻', 'nomenclatura': 'hidreto'}, {'ânion': 'O⁻²', 'nomenclatura': 'óxido'}, {'ânion': 'CrO₄⁻²', 'nomenclatura': 'cromato'}, {'ânion': 'Cr₂O₇⁻²', 'nomenclatura': 'dicromato'}, {'ânion': 'AsO₃⁻³', 'nomenclatura': 'arsenito'}, {'ânion': 'AsO₄⁻³', 'nomenclatura': 'arsenato'}, {'ânion': 'BO₃⁻³', 'nomenclatura': 'borato'}, {'ânion': 'B₄O₇⁻²', 'nomenclatura': 'tetraborato'}, {'ânion': 'SiO₄⁻⁴', 'nomenclatura': 'silicato'}]
     
-    if '⁺' in formulaion:
-        for i, v in enumerate(nomenclatura_cátions):
-            if formulaion == v['cátion']:
-                print(f'O íon {v["cátion"]} é chamado de cátion {v["nomenclatura"]}.')
-    if '⁻' in formulaion:
-        for i, v in enumerate(nomenclatura_ânions):
-            if formulaion == v['ânion']:
-                print(f'O íon {v["ânion"]} é chamado de ânion {v["nomenclatura"]}.')
-        
+    if '⁺' in formulaion or '⁻' in formulaion:
+        if '⁺' in formulaion:
+            for i, v in enumerate(nomenclatura_cátions):
+                if formulaion == v['cátion']:
+                    print(f'O íon {v["cátion"]} é chamado de cátion {v["nomenclatura"]}.')
+        if '⁻' in formulaion:
+            for i, v in enumerate(nomenclatura_ânions):
+                if formulaion == v['ânion']:
+                    print(f'O íon {v["ânion"]} é chamado de ânion {v["nomenclatura"]}.')
+        if formulaion not in nomenclatura_cátions and formulaion not in nomenclatura_ânions:
+            print('O íon digitado não existe ou não se encontra no banco de dados.')
+            
 
 
 def cabeçalhoop1():

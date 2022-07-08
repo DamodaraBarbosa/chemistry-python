@@ -77,7 +77,6 @@ while True:
             formula.insert(index_repetidos[i]+1, '1')
         else:                    
             formula.insert(index_repetidos[i]+cont, '1')
-
     for i, v in enumerate(formula):
         try:
             if v.isnumeric() == True and formula[i-1].isnumeric() == True:
