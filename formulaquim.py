@@ -12,6 +12,7 @@ formula_contagem_3 = list()
 formula_parenteses = list()
 index_repetidos = list()
 index_parenteses = list()
+função_parêntese = list()
 
 while True:
 
@@ -22,6 +23,8 @@ while True:
     formula_contagem_3.clear()
     index_repetidos.clear()
     index_parenteses.clear()
+    função_parêntese.clear()
+
     
     formula = list(str(input('Digite a fórmula da substância química: ')).strip())
     
@@ -62,7 +65,6 @@ while True:
         if formula[len(formula)-1] == None and formula[len(formula)-2] == '+' or formula[len(formula)-1] == None and formula[len(formula)-2] == '-':
             formula[len(formula)-1] = '1'        
         if formula[i].isalpha() == True and formula[i+1] == ')':
-            print(formula[i])
             formula.insert(formula.index(f'{formula[i+1]}'), '1')
     try:
         for i, v in enumerate(formula):
@@ -88,7 +90,10 @@ while True:
         for i, v in enumerate(formula):
             if v == '(' or v == ')':
                 index_parenteses.append(i)
-        
+        for i, v in enumerate(formula):
+            if i > min(index_parenteses) and i < max(index_parenteses):
+                função_parêntese.append(v)
+        print(função_parêntese,'ª')
         for i, v in enumerate(formula):
             if i > min(index_parenteses) and v.isdigit() == True and i < max(index_parenteses):
                 multiplicacao_parenteses = int(formula[max(index_parenteses)+1])*int(v)
@@ -195,34 +200,24 @@ while True:
             funções.linha()
 
         elif escolha == 5:
+            print(formula, '*')
             if 'C' not in formula:
                 print('Espécie química inorgânica.', '*')
             else:
-                index_carbono = []
+                index_carbono = list()
                 formula = list(formula)
-
-                # for i, v in enumerate(formula):
-                #     try:
-                #         if formula[i].isalpha() == True and formula[i+1].islower() == True:
-                #             formula[i-1:i+1] = ''.join(formula[i-1:i+1])
-                #     except IndexError:
-                #         pass
-                # print(formula, '/')
-
-                
-                carbono_inorg = [['C','1','O', '1'], ['C', '1', 'O', '2'], ['H', '2', 'C', '1', 'O', '3'], ['H', '1', 'C', '1', 'N', '1'], ['C', '1','O', '3'], ['C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '3'], ['O', 'C', 'N'], ['C', '2', 'O', '4']]
+                print(formula, '!')
+                carbono_inorg = [['C', '1', 'O', '1'], ['C', '1', 'O', '2'], ['H', '2', 'C', '1', 'O', '3'], ['H', '1', 'C', '1', 'N', '1'], ['C', '1','O', '3'], ['C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '3'], ['O', '1', 'C', '1', 'N', '1'], ['C', '2', 'O', '4'], ['S', '1', 'C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '1'], ['C'], ['C', '2']]
                 for i, v in enumerate(formula):
-                    if v == 'C':
-                        print(i)
-                        formula = formula[i:]
-                print(formula, 'inorg')
-                        # index_carbono.append(i)
-                # print(index_carbono)
-                # formula = formula[]
+                    if formula.count('C') == 1 and função_parêntese == []:
+                        formula = formula[formula.index('C'):]
+                print(formula, '¨¨')
                 if formula in carbono_inorg:
                     print('Espécie química inorgânica.', '%')
-                elif formula in carbono_inorg:
-                    print('Espécie química inorgânica.', '#')
+                elif função_parêntese != []:
+                    print(função_parêntese, '@')
+                    if função_parêntese in carbono_inorg:
+                        print('Espécie química inorgânica.', '#')
                 else:
                     print('Espécie química orgânica.')
                     for i, v in enumerate(formula_mostrada):
