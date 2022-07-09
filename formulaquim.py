@@ -27,7 +27,7 @@ while True:
 
     
     formula = list(str(input('Digite a fórmula da substância química: ')).strip())
-
+    print(formula, '¹')
     if formula == ['9','9','9']:
         break
     
@@ -37,10 +37,9 @@ while True:
             formula_mostrada.append(v)
         elif v.isdigit() == True and formula[i-1] != '+' or v.isdigit() == True and formula[i-1] != '-':
             formula_mostrada.append(v.translate(sub))
-            
         else:
             formula_mostrada.append(v)
-
+    print(formula, '²')
     funções.funíon(formula_mostrada)
     
     separator = ''
@@ -66,6 +65,10 @@ while True:
             formula[len(formula)-1] = '1'        
         if formula[i].isalpha() == True and formula[i+1] == ')':
             formula.insert(formula.index(f'{formula[i+1]}'), '1')
+        if formula[i].isalpha() == True and formula[i+1] == '+' or formula[i].isalpha() == True and formula[i+1] == '-':
+            formula.insert(i+1, '1')
+    print(formula, '³')
+
     try:
         for i, v in enumerate(formula):
             if v.isalpha() == True and formula[formula.index(v)+1].isalpha() == True:
