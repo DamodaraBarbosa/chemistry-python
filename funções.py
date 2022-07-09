@@ -96,7 +96,20 @@ def nomenclaturaíon(formulaion):
 
 
 def nomeclaturainorg(formulainorg):
-    print(formulainorg)
+    if '(' and ')' in formulainorg:
+        index_parenteses_inorg = list()
+        grupo_parenteses_inorg = list()
+
+        for i, v in enumerate(formulainorg):
+            if v == '(' or v == ')':
+                index_parenteses_inorg.append(i)
+        for i, v in enumerate(formulainorg):    
+            if i > min(index_parenteses_inorg) and i < max(index_parenteses_inorg):
+                grupo_parenteses_inorg.append(v)
+        print(grupo_parenteses_inorg)
+        
+                
+
 
 def cabeçalhoop1():
     linha2()

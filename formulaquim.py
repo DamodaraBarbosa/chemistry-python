@@ -1,4 +1,3 @@
-import enum
 import funções
 from mendeleev import element
 from googletrans import Translator
@@ -12,22 +11,23 @@ formula_contagem_3 = list()
 formula_parenteses = list()
 index_repetidos = list()
 index_parenteses = list()
-função_parêntese = list()
+grupo_parêntese = list()
+formula_inorg = list()
 
 while True:
-
     formula_mostrada.clear()
     formula_dados.clear()
     formula_contagem.clear()
     formula_contagem_2.clear()
     formula_contagem_3.clear()
+    formula_inorg.clear()
     index_repetidos.clear()
     index_parenteses.clear()
-    função_parêntese.clear()
+    grupo_parêntese.clear()
 
     
     formula = list(str(input('Digite a fórmula da substância química: ')).strip())
-    
+
     if formula == ['9','9','9']:
         break
     
@@ -85,15 +85,16 @@ while True:
             if v.isnumeric() == True and formula[i-1].isnumeric() == True:
                 formula[i-1:i+1] = [''.join(formula[i-1:i+1])]
         except AttributeError:
-            pass 
+            pass
+    for i, v in enumerate(formula):
+        formula_inorg.append(v)
     try:
         for i, v in enumerate(formula):
             if v == '(' or v == ')':
                 index_parenteses.append(i)
         for i, v in enumerate(formula):
             if i > min(index_parenteses) and i < max(index_parenteses):
-                função_parêntese.append(v)
-        print(função_parêntese,'ª')
+                grupo_parêntese.append(v)
         for i, v in enumerate(formula):
             if i > min(index_parenteses) and v.isdigit() == True and i < max(index_parenteses):
                 multiplicacao_parenteses = int(formula[max(index_parenteses)+1])*int(v)
@@ -133,7 +134,6 @@ while True:
     for i in formula_contagem_2:
         if i not in formula_contagem_3:
             formula_contagem_3.append(i)
-
     while True:
         try:
             escolha = int(input('Digite a opção desejada: '))
@@ -199,7 +199,6 @@ while True:
             funções.linha()
 
         elif escolha == 5:
-            funções.nomeclaturainorg(formula)
             if 'C' not in formula:
                 print('Espécie química inorgânica.')
             else:
@@ -210,13 +209,15 @@ while True:
                 ['H', '1', 'C', '1', 'O', '3'], ['O', '1', 'C', '1', 'N', '1'], ['C', '2', 'O', '4'], ['S', '1', 'C', '1', 'N', '1'], ['H', '1', 'C', '1', 'O', '1'], ['C', '1'], ['C', '2']]
                 
                 for i, v in enumerate(formula):
-                    if formula.count('C') == 1 and função_parêntese == []:
+                    if formula.count('C') == 1 and grupo_parêntese == []:
                         formula = formula[formula.index('C'):]
                 if formula in carbono_inorg:
                     print('Espécie química inorgânica.')
-                elif função_parêntese != []:
-                    if função_parêntese in carbono_inorg:
+                    funções.nomeclaturainorg(formula_inorg)
+                elif grupo_parêntese != []:
+                    if grupo_parêntese in carbono_inorg:
                         print('Espécie química inorgânica.')
+                        funções.nomeclaturainorg(formula_inorg)
                 else:
                     print('Espécie química orgânica.')
                     for i, v in enumerate(formula_mostrada):
@@ -224,11 +225,8 @@ while True:
             # print(formulagrupamento)
             # funções.grupamentofuncional(formulagrupamento)
             # funções.linha()
-                    
         elif escolha == 9:
             funções.linha()
-            break
-        elif escolha == 0:
             break
         else:
             funções.erro()
