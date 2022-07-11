@@ -1,3 +1,6 @@
+from operator import index
+
+
 def linha():
     print('\033[1;33m--\033[m'*30)
 
@@ -164,19 +167,50 @@ def nomeclaturainorg(formulainorg):
                 print(f'{v["nomenclatura"]}')
         linha()
     else:
+        nomenclatura_ânions = [{'ânion': ['F', '-'], 'nomenclatura': 'fluoreto'}, {'ânion': ['Cl', '-'], 'nomenclatura': 'cloreto'}, {'ânion': ['Br', '-'], 'nomenclatura': 'brometo'}, {'ânion': ['I', '-'], 'nomenclatura': 'iodeto'}, {'ânion': ['Cl', 'O', '-'], 'nomenclatura': 'hipoclorito'}, {'ânion': ['Cl', 'O', '2', '-'], 'nomenclatura': 'clorito'}, {'ânion': ['Cl', 'O', '3', '-'], 'nomenclatura': 'clorato'}, {'ânion': ['Cl', 'O', '4', '-'], 'nomenclatura': 'perclorato'}, {'ânion': ['Br', 'O', '-'], 'nomenclatura': 'hipobromito'}, {'ânion': ['Br', 'O', '₃', '-'], 'nomenclatura': 'bromato'}, {'ânion': ['I', 'O', '-'], 'nomenclatura': 'hipoiodito'}, {'ânion': ['I', 'O', '3', '-'], 'nomenclatura': 'iodato'}, {'ânion': ['I', 'O', '4', '-'], 'nomenclatura': 'periodato'}, {'ânion': ['C', 'N', '-'], 'nomenclatura': 'cianeto'}, {'ânion': ['O', 'C', 'N', '-'], 'nomenclatura': 'cianato'}, {'ânion': ['S', 'C', 'N', '-'], 'nomenclatura': 'tiocianato'}, {'ânion': ['C', 'H', '3', 'C', 'O', 'O', '-'], 'nomenclatura': 'acetato'}, {'ânion': ['C', '2', 'H', '3', 'O', '2', '-'], 'nomenclatura': 'acetato'}, {'ânion': ['C', 'O', '3', '-', '2'], 'nomenclatura': 'carbonato'}, {'ânion': ['H', 'C', 'O', '-', '2'], 'nomenclatura': 'formiato'},  {'ânion': ['H', 'C', 'O', '3', '-'], 'nomenclatura': 'bicarbonato'}, {'ânion': ['C', '2', 'O', '4', '-', '2'], 'nomenclatura': 'oxalato'}, {'ânion': ['C', '2', '-', '2'], 'nomenclatura': 'carbeto ou acetileto'}, 
+        {'ânion': ['C', '-', '4'], 'nomenclatura': 'carbeto ou metileto'}, {'ânion': ['N', 'O', '2', '-'], 'nomenclatura': 'nitrito'}, {'ânion': ['N', 'O', '3', '-'], 'nomenclatura': 'nitrato'}, {'ânion': ['N', '3', '-'], 'nomenclatura': 'azoteto ou azida'}, {'ânion': ['N', '-', '3'], 'nomenclatura': 'nitreto'}, {'ânion': ['P', 'O', '3', '-'], 'nomenclatura': 'metafosfato'}, {'ânion': ['H', '2', 'P', 'O', '2', '⁻'], 'nomenclatura': 'hipofosfito'}, {'ânion': ['H', 'P', 'O', '3', '-', '2'], 'nomenclatura': 'fosfito'}, {'ânion': ['P', 'O', '4', '-', '3'], 'nomenclatura': 'fosfato'}, {'ânion': ['P', '-', '3'], 'nomenclatura': 'fosfeto'}, {'ânion': ['P', '2', 'O', '7', '-', '4'], 'nomenclatura': 'pirofosfato'}, {'ânion': ['P', '2', 'O', '-', '4'], 'nomenclatura': 'hipofosfato'}, {'ânion': ['S', '-', '2'], 'nomenclatura': 'sulfeto'}, {'ânion': ['S', 'O', '4', '-', '2'], 'nomenclatura': 'sulfato'}, {'ânion': ['S', 'O', '3', '-', '2'], 'nomenclatura': 'sulfito'}, {'ânion': ['S', '2', 'O', '3', '-', '2'], 'nomenclatura': 'tiossulfato'}, {'ânion': ['S', '2', 'O', '4', '-', '2'], 'nomenclatura': 'hipossulfito'}, {'ânion': ['S', '2', 'O', '8', '-', '2'], 'nomenclatura': 'persulfato'}, {'ânion': ['S', '4', 'O', '6', '-', '2'], 'nomenclatura': 'tetrationato'}, {'ânion': ['Mn', 'O', '4', '-'], 'nomenclatura': 'permanganato'}, {'ânion': ['Mn', 'O', '4', '-', '2'], 'nomenclatura': 'manganato'}, {'ânion': ['Mn', 'O', '3', '-', '2'], 'nomenclatura': 'tetrationato'}, {'ânion': ['O', 'H', '-'], 'nomenclatura': 'hidróxido'}, 
+        {'ânion': ['H', '-'], 'nomenclatura': 'hidreto'}, {'ânion': ['O', '-', '2'], 'nomenclatura': 'óxido'}, {'ânion': ['Cr', 'O', '4', '-', '2'], 'nomenclatura': 'cromato'}, {'ânion': ['Cr', '2', 'O', '7', '-', '2'], 'nomenclatura': 'dicromato'}, {'ânion': ['As', 'O','3', '-', '3'], 'nomenclatura': 'arsenito'}, {'ânion': ['As', 'O', '4', '-', '3'], 'nomenclatura': 'arsenato'}, {'ânion': ['B', 'O', '3', '-', '3'], 'nomenclatura': 'borato'}, {'ânion': ['B', '4', 'O', '7', '-', '2'], 'nomenclatura': 'tetraborato'}, {'ânion': ['Si', 'O', '4', '-', '4'], 'nomenclatura': 'silicato'}]
+
         formulainorg_mod = list()
+        grupo_positivo = list()
+        grupo_negativo = list()
+        index_digit = list()
+
+        print(formulainorg)
 
         for i, v in enumerate(formulainorg):
             if v != '1':
                 formulainorg_mod.append(v)
-        print(list(formulainorg_mod), '*')
+        formulainorg_mod.append('1')
+        if str(formulainorg_mod[0]).isalpha() == True and str(formulainorg_mod[1]).isalpha() == True:
+            for i, v in enumerate(formulainorg_mod):
+                if str(formulainorg_mod[0]).isalpha() == True and str(formulainorg_mod[1]).isalpha() == True:
+                    formulainorg_mod.insert(1, '1')
+        else:
+            for i, v in enumerate(formulainorg_mod):
+                if str(v).isdigit() == True:
+                    index_digit.append(i)
+            
+            print(formulainorg_mod)
+
+            for i, v in enumerate(formulainorg_mod):
+                if i < min(index_digit):
+                    grupo_positivo.append(v)
+                if i > min(index_digit) and i <= max(index_digit):
+                    grupo_negativo.append(v)
+            grupo_positivo.append('+')
+            grupo_negativo.append('-')
+            grupo_negativo.append(formulainorg_mod[min(index_digit)])
+
+            print(grupo_positivo, '+')
+            print(grupo_negativo, '-')  
         # for i, v in enumerate(nomenclatura_cátions):
         #     for i, v in enumerate(nomenclatura_cátions[i]['cátion']):
         #         if nomenclatura_cátions[i]['cátion'] in formulainorg_mod:
         #             print('True')
         #         else:
         #             print('False')
-        print(formulainorg_mod, 'sem parênteses')
+        
         
                 
 
