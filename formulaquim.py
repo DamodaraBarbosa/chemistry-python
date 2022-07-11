@@ -26,8 +26,8 @@ while True:
     grupo_parêntese.clear()
 
     
-    formula = list(str(input('Digite a fórmula da substância química: ')).strip())
-    print(formula, '¹')
+    formula = list(str(input('Digite a fórmula da espécie química: ')).strip())
+    
     if formula == ['9','9','9']:
         break
     
@@ -39,7 +39,7 @@ while True:
             formula_mostrada.append(v.translate(sub))
         else:
             formula_mostrada.append(v)
-    print(formula, '²')
+    
     funções.funíon(formula_mostrada)
     
     separator = ''
@@ -67,8 +67,6 @@ while True:
             formula.insert(formula.index(f'{formula[i+1]}'), '1')
         if formula[i].isalpha() == True and formula[i+1] == '+' or formula[i].isalpha() == True and formula[i+1] == '-':
             formula.insert(i+1, '1')
-    print(formula, '³')
-
     try:
         for i, v in enumerate(formula):
             if v.isalpha() == True and formula[formula.index(v)+1].isalpha() == True:
@@ -187,7 +185,7 @@ while True:
         elif escolha == 4:
             funções.cabeçalhoop4(''.join(formula_mostrada[0:]))
             if '+' not in formula and '-' not in formula:
-                print('A espécie química é eletricamente neutra.')
+                pass
             else:
                 for i in formula:
                     if i == '+' or i == '-':
@@ -195,15 +193,16 @@ while True:
                     if i == '+':
                         print('\033[1;31mCátion\033[m', end=' ')
                     if i == '-':
-                        print('\033[1;34mÂnion\033[m', end=' ')
+                        print('\033[1;34mÂnion\033[m')
                 funções.valencia(formula)
-            funções.linha()
+                funções.linha()
             funções.nomenclaturaíon(''.join(formula_mostrada[0:]))
             funções.linha()
 
         elif escolha == 5:
             if 'C' not in formula:
-                print('Espécie química inorgânica.')
+                print('Espécie química inorgânica.', 'aqui')
+                funções.nomeclaturainorg(formula_inorg)
             else:
                 index_carbono = list()
                 formula = list(formula)
@@ -220,6 +219,9 @@ while True:
                 elif grupo_parêntese != []:
                     if grupo_parêntese in carbono_inorg:
                         print('Espécie química inorgânica.')
+                        for i, v in enumerate(formula_inorg):
+                            if str(v).isalpha() == True and formula_inorg[i+1] == '(':
+                                formula_inorg.insert(i+1,'1')
                         funções.nomeclaturainorg(formula_inorg)
                 else:
                     print('Espécie química orgânica.')
