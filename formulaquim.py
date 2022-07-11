@@ -201,7 +201,7 @@ while True:
 
         elif escolha == 5:
             if 'C' not in formula:
-                print('Espécie química inorgânica.', 'aqui')
+                print('Espécie química inorgânica.')
                 funções.nomeclaturainorg(formula_inorg)
             else:
                 index_carbono = list()

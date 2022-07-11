@@ -136,14 +136,8 @@ def nomeclaturainorg(formulainorg):
             for i, v in enumerate(nomenclatura_cátions):
                 if grupo_positivo == v['cátion']:
                     print(f'{v["nomenclatura"]}')
-        linha()
+            linha()
         
-
-
-
-                
-            
-
         for i, v in enumerate(formulainorg):
             if v == '(' or v == ')':
                 index_parenteses_inorg.append(i)
@@ -168,7 +162,21 @@ def nomeclaturainorg(formulainorg):
         for i, v in enumerate(nomenclatura_cátions):
             if grupo_positivo == v['cátion']:
                 print(f'{v["nomenclatura"]}')
-    linha()
+        linha()
+    else:
+        formulainorg_mod = list()
+
+        for i, v in enumerate(formulainorg):
+            if v != '1':
+                formulainorg_mod.append(v)
+        print(list(formulainorg_mod), '*')
+        # for i, v in enumerate(nomenclatura_cátions):
+        #     for i, v in enumerate(nomenclatura_cátions[i]['cátion']):
+        #         if nomenclatura_cátions[i]['cátion'] in formulainorg_mod:
+        #             print('True')
+        #         else:
+        #             print('False')
+        print(formulainorg_mod, 'sem parênteses')
         
                 
 
