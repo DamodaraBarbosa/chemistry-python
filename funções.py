@@ -1,9 +1,9 @@
 def linha():
-    print('\033[1;33m--\033[m'*30)
+    print('\033[1;33m--\033[m'*38)
 
 
 def linha2():
-    print('\033[1;33m-=\033[m'*30)
+    print('\033[1;33m-=\033[m'*38)
 
 
 def erro():
@@ -18,10 +18,53 @@ def cabeçalho(form):
     print('2. Quantos átomos há para cada elemento.')
     print('3. Massa da espécie química.')
     print('4. Natureza elétrica da espécie química.')
-    print('5. Substância orgânica ou inorgânica e seus grupamentos.')
+    print('5. Espécie orgânica e seus grupamentos ou inorgânica e sua nomenclatura.')
     print('9. Digitar uma nova fórmula de substância.')
     print('0. Finalizar o programa')
     linha()
+
+
+def cabeçalhoop1():
+    linha2()
+    print(f'{"PROPRIEDADES DOS ELEMENTOS":>42}')
+    linha2()
+    print(f'{"NOME":<12}', end=' ')
+    print(f'{"NÚMERO ATÔMICO (Z)":<32}', end=' ')
+    print(f'{"MASSA ATÔMICA"}')
+    linha()
+
+
+def cabeçalhoop2():
+    linha2()
+    print(f'{"MASSA MOLECULAR":>36}')
+    linha2()
+    print(f'{"FÓRMULA DA SUBSTÂNCIA":<45}', end='')
+    print('MASSA (u)')
+    linha()
+
+
+def cabeçalhoop3():
+    linha2()
+    print(f'{"QUANTIDADE DE ÁTOMOS POR ELEMENTO":>45}')
+    linha2()
+    print(f'{"NOME":<20}', end='')
+    print('QUANTIDADE DE ÁTOMOS')
+    linha()
+
+
+def cabeçalhoop4(formulasobrescrita):
+    linha2()
+    print(f'{"NATUREZA ELÉTRICA":>36}')
+    linha2()
+    print(f'{"ESPÉCIE QUÍMICA":<50}', end='')
+    print(formulasobrescrita)
+    linha()
+
+
+def cabeçalhoop5inorg(formulamostrada):
+    linha2()
+    print(f'\tESPÉCIE QUÍMICA {formulamostrada}')
+    linha2()
 
 def funíon(mostrada):
     for i, v in enumerate(mostrada):
@@ -95,7 +138,7 @@ def nomenclaturaíon(formulaion):
         print(f'A espécie química {formulaion} é eletricamente neutra.')
 
 
-def nomeclaturainorg(formulainorg):
+def nomeclaturainorg(formulainorg, formulamostrada):
     nomenclatura_cátions = [{'cátion': ['Li', '+'], 'nomenclatura': 'lítio'}, {'cátion': ['Na', '+'], 'nomenclatura': 'sódio'}, {'cátion': ['K', '+'], 'nomenclatura': 'potássio'}, {'cátion': ['Rb', '+'], 'nomenclatura': 'rubídio'}, {'cátion': ['Cs', '+'], 'nomenclatura': 'césio'}, {'cátion': ['Fr', '+'], 'nomenclatura': 'frâncio'}, {'cátion': ['Ag','+'], 'nomenclatura': 'prata'}, {'cátion': ['Cu', '+'], 'nomenclatura': 'cobre ou cuproso'}, {'cátion': ['Au', '+'], 'nomenclatura': 'ouro'}, {'cátion': ['N', 'H', '4', '+'], 'nomenclatura': 'amônio'}, {'cátion': ['Be', '+', '2'], 'nomenclatura': 'berílio'}, {'cátion': ['Mg', '+', '2'], 'nomenclatura': 'magnésio'}, {'cátion': ['Ca', '+', '2'], 'nomenclatura': 'cálcio'}, {'cátion': ['Sr', '+', '2'], 'nomenclatura': 'estrôncio'}, {'cátion': ['Ba', '+', '2'], 'nomenclatura': 'bário'}, {'cátion': ['Rd', '+', '2'], 'nomenclatura': 'rádio'}, {'cátion': ['Zn', '+', '2'], 'nomenclatura': 'zinco'}, {'cátion': ['Cd', '+', '2'], 'nomenclatura': 'cádmio'}, {'cátion': ['Cu', '+', '2'], 'nomenclatura': 'cobre (II) ou cupríco'}, {'cátion': ['Hg', '+', '2'], 'nomenclatura': 'mercúrio (II) ou mercúrico'}, {'cátion': ['Fe', '+', '2'], 'nomenclatura': 'ferro (II) ou ferroso'}, {'cátion': ['Co', '+', '2'], 'nomenclatura': 'cobalto'}, 
     {'cátion': ['Ni', '+', '2'], 'nomenclatura': 'níquel (II) ou niqueloso'}, {'cátion': ['Cr', '+', '2'], 'nomenclatura': 'cromo (II) ou cromoso'}, {'cátion': ['Mn', '+', '2'], 'nomenclatura': 'manganês (II) ou manganoso'}, {'cátion': ['Sn', '+', '2'], 'nomenclatura': 'estanho(II) ou estanhoso'}, {'cátion': ['Pb', '+','2'], 'nomenclatura': 'chumbo (II) ou plumboso'}, {'cátion': ['Ti', '+', '2'], 'nomenclatura': 'titânio (II) ou titanoso'}, {'cátion': ['Pt', '+', '2'], 'nomenclatura': 'platina (II) ou platinoso'}, {'cátion': ['Al', '+', '3'], 'nomenclatura': 'alumínio'}, {'cátion': ['Bi', '+', '3'], 'nomenclatura': 'bismuto'}, {'cátion': ['Au', '+', '3'], 'nomenclatura': 'ouro (III) ou áurico'}, {'cátion': ['Fe', '+', '3'], 'nomenclatura': 'ferro (III) ou férrico'}, {'cátion': ['Co', '+', '3'], 'nomenclatura': 'cobalto (III) ou cobáltico'}, {'cátion': ['Ni', '+', '3'], 'nomenclatura': 'níquel (III) ou niquélico'}, {'cátion': ['Cr', '+', '3'], 'nomenclatura': 'cromo (III) ou crômico'}, {'cátion': ['Sn', '+', '4'], 'nomenclatura': 'estanho (IV) ou estânico'}, {'cátion': ['Pb', '+', '4'], 'nomenclatura': 'chumbo (IV) ou plúmbico'}, {'cátion': ['Ti', '+', '4'], 'nomenclatura': 'titânio (IV) ou titânico'}, {'cátion': ['Pt', '+', '4'], 'nomenclatura': 'platina (IV) ou platínico'}, 
     {'cátion': ['Mn', '+', '4'], 'nomenclatura': 'manganês (IV) ou mangânico'}, {'cátion': ['Cr', '+', '6'], 'nomenclatura':'cromo (VI)'}]
@@ -166,13 +209,10 @@ def nomeclaturainorg(formulainorg):
         grupo_negativo = list()
         index_digit = list()
 
-        print(formulainorg, 'original')
-
         for i, v in enumerate(formulainorg):
             if v != '1':
                 formulainorg_mod.append(v)
         try:
-            print('entrou no try linha 174')
             if str(formulainorg_mod[0]).isalpha() == True and str(formulainorg_mod[1]).isalpha() == True and str(formulainorg_mod[2]).isalpha() == True:
                 nomenclatura_ânions_sal_X1YZ2 = [{'ânion': ['F', '-'], 'nomenclatura': 'fluoreto', 'carga': '1'}, {'ânion': ['Cl', '-'], 'nomenclatura': 'cloreto', 'carga': '1'}, {'ânion': ['Br', '-'], 'nomenclatura': 'brometo', 'carga': '1'}, {'ânion': ['I', '-'], 'nomenclatura': 'iodeto', 'carga': '1'}, {'ânion': ['Cl', 'O', '-'], 'nomenclatura': 'hipoclorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '2', '-'], 'nomenclatura': 'clorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '3', '-'], 'nomenclatura': 'clorato', 'carga': '1'}, {'ânion': ['Cl', 'O', '4', '-'], 'nomenclatura': 'perclorato', 'carga': '1'}, {'ânion': ['Br', 'O', '-'], 'nomenclatura': 'hipobromito', 'carga': '1'}, {'ânion': ['Br', 'O', '3', '-'], 'nomenclatura': 'bromato', 'carga': '1'}, {'ânion': ['I', 'O', '-'], 'nomenclatura': 'hipoiodito', 'carga': '1'}, {'ânion': ['I', 'O', '3', '-'], 'nomenclatura': 'iodato', 'carga': '1'}, {'ânion': ['I', 'O', '4', '-'], 'nomenclatura': 'periodato', 'carga': '1'}, {'ânion': ['C', 'N', '-'], 'nomenclatura': 'cianeto', 'carga': '1'}, {'ânion': ['O', 'C', 'N', '-'], 'nomenclatura': 'cianato', 'carga': '1'}, {'ânion': ['S', 'C', 'N', '-'], 'nomenclatura': 'tiocianato', 'carga': '1'}, {'ânion': ['C', 'H', '3', 'C', 'O', 'O', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', '2', 'H', '3', 'O', '2', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', 'O', '3', '-'], 'nomenclatura': 'carbonato', 'carga': '2'}, {'ânion': ['H', 'C', 'O', '-'], 'nomenclatura': 'formiato', 'carga': '2'},  {'ânion': ['H', 'C', 'O', '3', '-'], 'nomenclatura': 'bicarbonato', 'carga': '1'}, {'ânion': ['C', '2', 'O', '4', '-'], 'nomenclatura': 'oxalato', 'carga': '2'}, {'ânion': ['C', '2', '-'], 'nomenclatura': 'carbeto ou acetileto', 'carga': '2'}, 
                 {'ânion': ['C', '-'], 'nomenclatura': 'carbeto ou metileto', 'carga': '4'}, {'ânion': ['N', 'O', '2', '-'], 'nomenclatura': 'nitrito', 'carga': '1'}, {'ânion': ['N', 'O', '3', '-'], 'nomenclatura': 'nitrato', 'carga': '1'}, {'ânion': ['N', '3', '-'], 'nomenclatura': 'azoteto ou azida', 'carga': '1'}, {'ânion': ['N', '-'], 'nomenclatura': 'nitreto', 'carga': '3'}, {'ânion': ['P', 'O', '3', '-'], 'nomenclatura': 'metafosfato', 'carga': '1'}, {'ânion': ['H', '2', 'P', 'O', '2', '⁻'], 'nomenclatura': 'hipofosfito', 'carga': '1'}, {'ânion': ['H', 'P', 'O', '3', '-'], 'nomenclatura': 'fosfito', 'carga': '2'}, {'ânion': ['P', 'O', '4', '-'], 'nomenclatura': 'fosfato', 'carga': '3'}, {'ânion': ['P', '-'], 'nomenclatura': 'fosfeto', 'carga': '3'}, {'ânion': ['P', '2', 'O', '7', '-'], 'nomenclatura': 'pirofosfato', 'carga': '4'}, {'ânion': ['P', '2', 'O', '-'], 'nomenclatura': 'hipofosfato', 'carga': '4'}, {'ânion': ['S', '-'], 'nomenclatura': 'sulfeto', 'carga': '2'}, {'ânion': ['S', 'O', '4', '-'], 'nomenclatura': 'sulfato', 'carga': '2'}, {'ânion': ['S', 'O', '3', '-'], 'nomenclatura': 'sulfito', 'carga': '2'}, {'ânion': ['S', '2', 'O', '3', '-'], 'nomenclatura': 'tiossulfato', 'carga': '2'}, {'ânion': ['S', '2', 'O', '4', '-'], 'nomenclatura': 'hipossulfito', 'carga': '2'}, {'ânion': ['S', '2', 'O', '8', '-'], 'nomenclatura': 'persulfato', 'carga': '2'}, {'ânion': ['S', '4', 'O', '6', '-'], 'nomenclatura': 'tetrationato', 'carga': '2'}, {'ânion': ['Mn', 'O', '4', '-'], 'nomenclatura': 'permanganato', 'carga': '1'}, {'ânion': ['Mn', 'O', '4', '-', '2'], 'nomenclatura': 'manganato', 'carga': '2'}, {'ânion': ['Mn', 'O', '3', '-'], 'nomenclatura': 'tetrationato', 'carga': '2'}, {'ânion': ['O', 'H', '-'], 'nomenclatura': 'hidróxido', 'carga': '1'}, 
@@ -238,7 +278,7 @@ def nomeclaturainorg(formulainorg):
                 grupo_positivo.append('+')
                 grupo_negativo.append('-')
                 grupo_negativo.append(formulainorg_mod[min(index_digit)])
-                
+
             else:
                 if str(formulainorg_mod[0]).isalpha() == True and str(formulainorg_mod[1]).isalpha() == True:
                     formulainorg_mod.insert(1, '1')
@@ -338,58 +378,16 @@ def nomeclaturainorg(formulainorg):
                     grupo_negativo.append('-')
                     grupo_negativo.append(formulainorg_mod[min(index_digit)])
 
+            print(f'A espécie química {formulamostrada} é inorgânica.')
         for i, v in enumerate(nomenclatura_ânions):
             if grupo_negativo == v['ânion']:
-                    print(f'Nome da espécie química: {v["nomenclatura"]} de', end=' ')
+                print(f'Com nomenclatura: {v["nomenclatura"]} de', end=' ')
         for i, v in enumerate(nomenclatura_cátions):
             if grupo_positivo == v['cátion']:
                 print(f'{v["nomenclatura"]}')
-        linha()  
-        # for i, v in enumerate(nomenclatura_cátions):
-        #     for i, v in enumerate(nomenclatura_cátions[i]['cátion']):
-        #         if nomenclatura_cátions[i]['cátion'] in formulainorg_mod:
-        #             print('True')
-        #         else:
-        #             print('False')
-        
-        
-                
-
-
-def cabeçalhoop1():
-    linha2()
-    print(f'{"PROPRIEDADES DOS ELEMENTOS":>42}')
-    linha2()
-    print(f'{"NOME":<12}', end=' ')
-    print(f'{"NÚMERO ATÔMICO (Z)":<32}', end=' ')
-    print(f'{"MASSA ATÔMICA"}')
-    linha()
-
-def cabeçalhoop3():
-    linha2()
-    print(f'{"QUANTIDADE DE ÁTOMOS POR ELEMENTO":>45}')
-    linha2()
-    print(f'{"NOME":<20}', end='')
-    print('QUANTIDADE DE ÁTOMOS')
-    linha()
-
-
-def cabeçalhoop2():
-    linha2()
-    print(f'{"MASSA MOLECULAR":>36}')
-    linha2()
-    print(f'{"FÓRMULA DA SUBSTÂNCIA":<45}', end='')
-    print('MASSA (u)')
-    linha()
-
-
-def cabeçalhoop4(formulasobrescrita):
-    linha2()
-    print(f'{"NATUREZA ELÉTRICA":>36}')
-    linha2()
-    print(f'{"ESPÉCIE QUÍMICA":<50}', end='')
-    print(formulasobrescrita)
-    linha()
+        # else:
+        #     print('A espécie química não se encontra no nosso banco de dados ou não existe.')
+        # linha()  
 
 
 def grupamentofuncional(grupamento):
