@@ -99,7 +99,7 @@ def nomeclaturainorg(formulainorg):
     nomenclatura_cátions = [{'cátion': ['Li', '+'], 'nomenclatura': 'lítio'}, {'cátion': ['Na', '+'], 'nomenclatura': 'sódio'}, {'cátion': ['K', '+'], 'nomenclatura': 'potássio'}, {'cátion': ['Rb', '+'], 'nomenclatura': 'rubídio'}, {'cátion': ['Cs', '+'], 'nomenclatura': 'césio'}, {'cátion': ['Fr', '+'], 'nomenclatura': 'frâncio'}, {'cátion': ['Ag','+'], 'nomenclatura': 'prata'}, {'cátion': ['Cu', '+'], 'nomenclatura': 'cobre ou cuproso'}, {'cátion': ['Au', '+'], 'nomenclatura': 'ouro'}, {'cátion': ['N', 'H', '4', '+'], 'nomenclatura': 'amônio'}, {'cátion': ['Be', '+', '2'], 'nomenclatura': 'berílio'}, {'cátion': ['Mg', '+', '2'], 'nomenclatura': 'magnésio'}, {'cátion': ['Ca', '+', '2'], 'nomenclatura': 'cálcio'}, {'cátion': ['Sr', '+', '2'], 'nomenclatura': 'estrôncio'}, {'cátion': ['Ba', '+', '2'], 'nomenclatura': 'bário'}, {'cátion': ['Rd', '+', '2'], 'nomenclatura': 'rádio'}, {'cátion': ['Zn', '+', '2'], 'nomenclatura': 'zinco'}, {'cátion': ['Cd', '+', '2'], 'nomenclatura': 'cádmio'}, {'cátion': ['Cu', '+', '2'], 'nomenclatura': 'cobre (II) ou cupríco'}, {'cátion': ['Hg', '+', '2'], 'nomenclatura': 'mercúrio (II) ou mercúrico'}, {'cátion': ['Fe', '+', '2'], 'nomenclatura': 'ferro (II) ou ferroso'}, {'cátion': ['Co', '+', '2'], 'nomenclatura': 'cobalto'}, 
     {'cátion': ['Ni', '+', '2'], 'nomenclatura': 'níquel (II) ou niqueloso'}, {'cátion': ['Cr', '+', '2'], 'nomenclatura': 'cromo (II) ou cromoso'}, {'cátion': ['Mn', '+', '2'], 'nomenclatura': 'manganês (II) ou manganoso'}, {'cátion': ['Sn', '+', '2'], 'nomenclatura': 'estanho(II) ou estanhoso'}, {'cátion': ['Pb', '+','2'], 'nomenclatura': 'chumbo (II) ou plumboso'}, {'cátion': ['Ti', '+', '2'], 'nomenclatura': 'titânio (II) ou titanoso'}, {'cátion': ['Pt', '+', '2'], 'nomenclatura': 'platina (II) ou platinoso'}, {'cátion': ['Al', '+', '3'], 'nomenclatura': 'alumínio'}, {'cátion': ['Bi', '+', '3'], 'nomenclatura': 'bismuto'}, {'cátion': ['Au', '+', '3'], 'nomenclatura': 'ouro (III) ou áurico'}, {'cátion': ['Fe', '+', '3'], 'nomenclatura': 'ferro (III) ou férrico'}, {'cátion': ['Co', '+', '3'], 'nomenclatura': 'cobalto (III) ou cobáltico'}, {'cátion': ['Ni', '+', '3'], 'nomenclatura': 'níquel (III) ou niquélico'}, {'cátion': ['Cr', '+', '3'], 'nomenclatura': 'cromo (III) ou crômico'}, {'cátion': ['Sn', '+', '4'], 'nomenclatura': 'estanho (IV) ou estânico'}, {'cátion': ['Pb', '+', '4'], 'nomenclatura': 'chumbo (IV) ou plúmbico'}, {'cátion': ['Ti', '+', '4'], 'nomenclatura': 'titânio (IV) ou titânico'}, {'cátion': ['Pt', '+', '4'], 'nomenclatura': 'platina (IV) ou platínico'}, 
     {'cátion': ['Mn', '+', '4'], 'nomenclatura': 'manganês (IV) ou mangânico'}, {'cátion': ['Cr', '+', '6'], 'nomenclatura':'cromo (VI)'}]
-    nomenclatura_ânions = [{'ânion': ['F', '-'], 'nomenclatura': 'fluoreto', 'carga': '1'}, {'ânion': ['Cl', '-'], 'nomenclatura': 'cloreto', 'carga': '1'}, {'ânion': ['Br', '-'], 'nomenclatura': 'brometo', 'carga': '1'}, {'ânion': ['I', '-'], 'nomenclatura': 'iodeto', 'carga': '1'}, {'ânion': ['Cl', 'O', '-'], 'nomenclatura': 'hipoclorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '2', '-'], 'nomenclatura': 'clorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '3', '-'], 'nomenclatura': 'clorato', 'carga': '1'}, {'ânion': ['Cl', 'O', '4', '-'], 'nomenclatura': 'perclorato', 'carga': '1'}, {'ânion': ['Br', 'O', '-'], 'nomenclatura': 'hipobromito', 'carga': '1'}, {'ânion': ['Br', 'O', '₃', '-'], 'nomenclatura': 'bromato', 'carga': '1'}, {'ânion': ['I', 'O', '-'], 'nomenclatura': 'hipoiodito', 'carga': '1'}, {'ânion': ['I', 'O', '3', '-'], 'nomenclatura': 'iodato', 'carga': '1'}, {'ânion': ['I', 'O', '4', '-'], 'nomenclatura': 'periodato', 'carga': '1'}, {'ânion': ['C', 'N', '-'], 'nomenclatura': 'cianeto', 'carga': '1'}, {'ânion': ['O', 'C', 'N', '-'], 'nomenclatura': 'cianato', 'carga': '1'}, {'ânion': ['S', 'C', 'N', '-'], 'nomenclatura': 'tiocianato', 'carga': '1'}, {'ânion': ['C', 'H', '3', 'C', 'O', 'O', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', '2', 'H', '3', 'O', '2', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', 'O', '3', '-', '2'], 'nomenclatura': 'carbonato', 'carga': '2'}, {'ânion': ['H', 'C', 'O', '-', '2'], 'nomenclatura': 'formiato', 'carga': '2'},  {'ânion': ['H', 'C', 'O', '3', '-'], 'nomenclatura': 'bicarbonato', 'carga': '1'}, {'ânion': ['C', '2', 'O', '4', '-', '2'], 'nomenclatura': 'oxalato', 'carga': '2'}, {'ânion': ['C', '2', '-', '2'], 'nomenclatura': 'carbeto ou acetileto', 'carga': '2'}, 
+    nomenclatura_ânions = [{'ânion': ['F', '-'], 'nomenclatura': 'fluoreto', 'carga': '1'}, {'ânion': ['Cl', '-'], 'nomenclatura': 'cloreto', 'carga': '1'}, {'ânion': ['Br', '-'], 'nomenclatura': 'brometo', 'carga': '1'}, {'ânion': ['I', '-'], 'nomenclatura': 'iodeto', 'carga': '1'}, {'ânion': ['Cl', 'O', '-'], 'nomenclatura': 'hipoclorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '2', '-'], 'nomenclatura': 'clorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '3', '-'], 'nomenclatura': 'clorato', 'carga': '1'}, {'ânion': ['Cl', 'O', '4', '-'], 'nomenclatura': 'perclorato', 'carga': '1'}, {'ânion': ['Br', 'O', '-'], 'nomenclatura': 'hipobromito', 'carga': '1'}, {'ânion': ['Br', 'O', '3', '-'], 'nomenclatura': 'bromato', 'carga': '1'}, {'ânion': ['I', 'O', '-'], 'nomenclatura': 'hipoiodito', 'carga': '1'}, {'ânion': ['I', 'O', '3', '-'], 'nomenclatura': 'iodato', 'carga': '1'}, {'ânion': ['I', 'O', '4', '-'], 'nomenclatura': 'periodato', 'carga': '1'}, {'ânion': ['C', 'N', '-'], 'nomenclatura': 'cianeto', 'carga': '1'}, {'ânion': ['O', 'C', 'N', '-'], 'nomenclatura': 'cianato', 'carga': '1'}, {'ânion': ['S', 'C', 'N', '-'], 'nomenclatura': 'tiocianato', 'carga': '1'}, {'ânion': ['C', 'H', '3', 'C', 'O', 'O', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', '2', 'H', '3', 'O', '2', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', 'O', '3', '-', '2'], 'nomenclatura': 'carbonato', 'carga': '2'}, {'ânion': ['H', 'C', 'O', '-', '2'], 'nomenclatura': 'formiato', 'carga': '2'},  {'ânion': ['H', 'C', 'O', '3', '-'], 'nomenclatura': 'bicarbonato', 'carga': '1'}, {'ânion': ['C', '2', 'O', '4', '-', '2'], 'nomenclatura': 'oxalato', 'carga': '2'}, {'ânion': ['C', '2', '-', '2'], 'nomenclatura': 'carbeto ou acetileto', 'carga': '2'}, 
     {'ânion': ['C', '-', '4'], 'nomenclatura': 'carbeto ou metileto', 'carga': '4'}, {'ânion': ['N', 'O', '2', '-'], 'nomenclatura': 'nitrito', 'carga': '1'}, {'ânion': ['N', 'O', '3', '-'], 'nomenclatura': 'nitrato', 'carga': '1'}, {'ânion': ['N', '3', '-'], 'nomenclatura': 'azoteto ou azida', 'carga': '1'}, {'ânion': ['N', '-', '3'], 'nomenclatura': 'nitreto', 'carga': '3'}, {'ânion': ['P', 'O', '3', '-'], 'nomenclatura': 'metafosfato', 'carga': '1'}, {'ânion': ['H', '2', 'P', 'O', '2', '⁻'], 'nomenclatura': 'hipofosfito', 'carga': '1'}, {'ânion': ['H', 'P', 'O', '3', '-', '2'], 'nomenclatura': 'fosfito', 'carga': '2'}, {'ânion': ['P', 'O', '4', '-', '3'], 'nomenclatura': 'fosfato', 'carga': '3'}, {'ânion': ['P', '-', '3'], 'nomenclatura': 'fosfeto', 'carga': '3'}, {'ânion': ['P', '2', 'O', '7', '-', '4'], 'nomenclatura': 'pirofosfato', 'carga': '4'}, {'ânion': ['P', '2', 'O', '-', '4'], 'nomenclatura': 'hipofosfato', 'carga': '4'}, {'ânion': ['S', '-', '2'], 'nomenclatura': 'sulfeto', 'carga': '2'}, {'ânion': ['S', 'O', '4', '-', '2'], 'nomenclatura': 'sulfato', 'carga': '2'}, {'ânion': ['S', 'O', '3', '-', '2'], 'nomenclatura': 'sulfito', 'carga': '2'}, {'ânion': ['S', '2', 'O', '3', '-', '2'], 'nomenclatura': 'tiossulfato', 'carga': '2'}, {'ânion': ['S', '2', 'O', '4', '-', '2'], 'nomenclatura': 'hipossulfito', 'carga': '2'}, {'ânion': ['S', '2', 'O', '8', '-', '2'], 'nomenclatura': 'persulfato', 'carga': '2'}, {'ânion': ['S', '4', 'O', '6', '-', '2'], 'nomenclatura': 'tetrationato', 'carga': '2'}, {'ânion': ['Mn', 'O', '4', '-'], 'nomenclatura': 'permanganato', 'carga': '1'}, {'ânion': ['Mn', 'O', '4', '-', '2'], 'nomenclatura': 'manganato', 'carga': '2'}, {'ânion': ['Mn', 'O', '3', '-', '2'], 'nomenclatura': 'tetrationato', 'carga': '2'}, {'ânion': ['O', 'H', '-'], 'nomenclatura': 'hidróxido', 'carga': '1'}, 
     {'ânion': ['H', '-'], 'nomenclatura': 'hidreto', 'carga': '1'}, {'ânion': ['O', '-', '2'], 'nomenclatura': 'óxido', 'carga': '2'}, {'ânion': ['Cr', 'O', '4', '-', '2'], 'nomenclatura': 'cromato', 'carga': '2'}, {'ânion': ['Cr', '2', 'O', '7', '-', '2'], 'nomenclatura': 'dicromato', 'carga': '2'}, {'ânion': ['As', 'O','3', '-', '3'], 'nomenclatura': 'arsenito', 'carga': '3'}, {'ânion': ['As', 'O', '4', '-', '3'], 'nomenclatura': 'arsenato', 'carga': '3'}, {'ânion': ['B', 'O', '3', '-', '3'], 'nomenclatura': 'borato', 'carga': '3'}, {'ânion': ['B', '4', 'O', '7', '-', '2'], 'nomenclatura': 'tetraborato', 'carga': '2'}, {'ânion': ['Si', 'O', '4', '-', '4'], 'nomenclatura': 'silicato', 'carga': '4'}]
 
@@ -174,7 +174,7 @@ def nomeclaturainorg(formulainorg):
         for i, v in enumerate(formulainorg):
             if v != '1':
                 formulainorg_mod.append(v)
-        
+        print(formulainorg_mod,'modificada')
         if str(formulainorg_mod[0]).isalpha() == True and str(formulainorg_mod[1]).isalpha() == True:
             print('entrou no if')
             for i, v in enumerate(formulainorg_mod):
@@ -188,46 +188,58 @@ def nomeclaturainorg(formulainorg):
             for i, v in enumerate(formulainorg_mod):
                 if str(v).isdigit() == True:
                     index_digit.append(i)
-            if formulainorg_mod[min(index_digit)] == formulainorg_mod[max(index_digit)]:
-                for i, v in enumerate(formulainorg_mod):
-                    if i < min(index_digit):
-                        grupo_positivo.append(v)
-                    if i > min(index_digit) and i < max(index_digit):
-                        grupo_negativo.append(v)
-                
 
-            if str(formulainorg_mod[len(formulainorg_mod)-1]).isdigit() == True and formulainorg_mod[len(formulainorg_mod)-1] != '1':
+            if formulainorg_mod[min(index_digit)] == formulainorg_mod[max(index_digit)]:
+                nomenclatura_ânions_sal_XY = [{'ânion': ['F', '-'], 'nomenclatura': 'fluoreto', 'carga': '1'}, {'ânion': ['Cl', '-'], 'nomenclatura': 'cloreto', 'carga': '1'}, {'ânion': ['Br', '-'], 'nomenclatura': 'brometo', 'carga': '1'}, {'ânion': ['I', '-'], 'nomenclatura': 'iodeto', 'carga': '1'}, {'ânion': ['Cl', 'O', '-'], 'nomenclatura': 'hipoclorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '2', '-'], 'nomenclatura': 'clorito', 'carga': '1'}, {'ânion': ['Cl', 'O', '3', '-'], 'nomenclatura': 'clorato', 'carga': '1'}, {'ânion': ['Cl', 'O', '4', '-'], 'nomenclatura': 'perclorato', 'carga': '1'}, {'ânion': ['Br', 'O', '-'], 'nomenclatura': 'hipobromito', 'carga': '1'}, {'ânion': ['Br', 'O', '3', '-'], 'nomenclatura': 'bromato', 'carga': '1'}, {'ânion': ['I', 'O', '-'], 'nomenclatura': 'hipoiodito', 'carga': '1'}, {'ânion': ['I', 'O', '3', '-'], 'nomenclatura': 'iodato', 'carga': '1'}, {'ânion': ['I', 'O', '4', '-'], 'nomenclatura': 'periodato', 'carga': '1'}, {'ânion': ['C', 'N', '-'], 'nomenclatura': 'cianeto', 'carga': '1'}, {'ânion': ['O', 'C', 'N', '-'], 'nomenclatura': 'cianato', 'carga': '1'}, {'ânion': ['S', 'C', 'N', '-'], 'nomenclatura': 'tiocianato', 'carga': '1'}, {'ânion': ['C', 'H', '3', 'C', 'O', 'O', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', '2', 'H', '3', 'O', '2', '-'], 'nomenclatura': 'acetato', 'carga': '1'}, {'ânion': ['C', 'O', '3', '-'], 'nomenclatura': 'carbonato', 'carga': '2'}, {'ânion': ['H', 'C', 'O', '-'], 'nomenclatura': 'formiato', 'carga': '2'},  {'ânion': ['H', 'C', 'O', '3', '-'], 'nomenclatura': 'bicarbonato', 'carga': '1'}, {'ânion': ['C', '2', 'O', '4', '-'], 'nomenclatura': 'oxalato', 'carga': '2'}, {'ânion': ['C', '2', '-'], 'nomenclatura': 'carbeto ou acetileto', 'carga': '2'}, 
+                {'ânion': ['C', '-'], 'nomenclatura': 'carbeto ou metileto', 'carga': '4'}, {'ânion': ['N', 'O', '2', '-'], 'nomenclatura': 'nitrito', 'carga': '1'}, {'ânion': ['N', 'O', '3', '-'], 'nomenclatura': 'nitrato', 'carga': '1'}, {'ânion': ['N', '3', '-'], 'nomenclatura': 'azoteto ou azida', 'carga': '1'}, {'ânion': ['N', '-'], 'nomenclatura': 'nitreto', 'carga': '3'}, {'ânion': ['P', 'O', '3', '-'], 'nomenclatura': 'metafosfato', 'carga': '1'}, {'ânion': ['H', '2', 'P', 'O', '2', '⁻'], 'nomenclatura': 'hipofosfito', 'carga': '1'}, {'ânion': ['H', 'P', 'O', '3', '-'], 'nomenclatura': 'fosfito', 'carga': '2'}, {'ânion': ['P', 'O', '4', '-'], 'nomenclatura': 'fosfato', 'carga': '3'}, {'ânion': ['P', '-'], 'nomenclatura': 'fosfeto', 'carga': '3'}, {'ânion': ['P', '2', 'O', '7', '-'], 'nomenclatura': 'pirofosfato', 'carga': '4'}, {'ânion': ['P', '2', 'O', '-'], 'nomenclatura': 'hipofosfato', 'carga': '4'}, {'ânion': ['S', '-'], 'nomenclatura': 'sulfeto', 'carga': '2'}, {'ânion': ['S', 'O', '4', '-'], 'nomenclatura': 'sulfato', 'carga': '2'}, {'ânion': ['S', 'O', '3', '-'], 'nomenclatura': 'sulfito', 'carga': '2'}, {'ânion': ['S', '2', 'O', '3', '-'], 'nomenclatura': 'tiossulfato', 'carga': '2'}, {'ânion': ['S', '2', 'O', '4', '-'], 'nomenclatura': 'hipossulfito', 'carga': '2'}, {'ânion': ['S', '2', 'O', '8', '-'], 'nomenclatura': 'persulfato', 'carga': '2'}, {'ânion': ['S', '4', 'O', '6', '-'], 'nomenclatura': 'tetrationato', 'carga': '2'}, {'ânion': ['Mn', 'O', '4', '-'], 'nomenclatura': 'permanganato', 'carga': '1'}, {'ânion': ['Mn', 'O', '4', '-', '2'], 'nomenclatura': 'manganato', 'carga': '2'}, {'ânion': ['Mn', 'O', '3', '-'], 'nomenclatura': 'tetrationato', 'carga': '2'}, {'ânion': ['O', 'H', '-'], 'nomenclatura': 'hidróxido', 'carga': '1'}, 
+                {'ânion': ['H', '-'], 'nomenclatura': 'hidreto', 'carga': '1'}, {'ânion': ['Cr', 'O', '4', '-'], 'nomenclatura': 'cromato', 'carga': '2'}, {'ânion': ['Cr', '2', 'O', '7', '-'], 'nomenclatura': 'dicromato', 'carga': '2'}, {'ânion': ['As', 'O','3', '-'], 'nomenclatura': 'arsenito', 'carga': '3'}, {'ânion': ['As', 'O', '4', '-'], 'nomenclatura': 'arsenato', 'carga': '3'}, {'ânion': ['B', 'O', '3', '-'], 'nomenclatura': 'borato', 'carga': '3'}, {'ânion': ['B', '4', 'O', '7', '-'], 'nomenclatura': 'tetraborato', 'carga': '2'}, {'ânion': ['Si', 'O', '4', '-'], 'nomenclatura': 'silicato', 'carga': '4'}]
+
                 for i, v in enumerate(formulainorg_mod):
                     if i < min(index_digit):
                         grupo_positivo.append(v)
-                        grupo_positivo.append('+')
-                        grupo_positivo.append(formulainorg_mod[max(index_digit)])
                     if i > min(index_digit) and i < max(index_digit):
-                        grupo_negativo.append(v)
-                        grupo_negativo.append('-')
-                        grupo_negativo.append(formulainorg_mod[min(index_digit)])
-                        if '1' in grupo_negativo:
-                            grupo_negativo.remove('1')
-                print(grupo_positivo, 'NaCl')
-                print(grupo_negativo, 'NaCl')
-            else:
-                for i, v in enumerate(formulainorg_mod):
-                    if i < min(index_digit):
-                        grupo_positivo.append(v)
-                    if i > min(index_digit) and i <= max(index_digit):
                         grupo_negativo.append(v)
                 grupo_positivo.append('+')
                 grupo_negativo.append('-')
-                grupo_negativo.append(formulainorg_mod[min(index_digit)])
+                for i, v in enumerate(nomenclatura_ânions_sal_XY):
+                    if grupo_negativo == v['ânion']:
+                        if v['carga'] != '1':
+                            grupo_positivo.append(v['carga'])
+                            grupo_negativo.append(v['carga'])
+                print(grupo_positivo, 'ei')
+                print(grupo_negativo, 'oi')
+            else:    
+                if str(formulainorg_mod[len(formulainorg_mod)-1]).isdigit() == True and formulainorg_mod[len(formulainorg_mod)-1] != '1':
+                    print('entra aqui')
+                    for i, v in enumerate(formulainorg_mod):
+                        if i < min(index_digit):
+                            grupo_positivo.append(v)
+                            grupo_positivo.append('+')
+                            grupo_positivo.append(formulainorg_mod[max(index_digit)])
+                        if i > min(index_digit) and i < max(index_digit):
+                            grupo_negativo.append(v)
+                            grupo_negativo.append('-')
+                            grupo_negativo.append(formulainorg_mod[min(index_digit)])
+                            if '1' in grupo_negativo:
+                                grupo_negativo.remove('1')
+                    print(grupo_positivo, 'NaCl')
+                    print(grupo_negativo, 'NaCl')
+                else:
+                    print('entra ali')
+                    for i, v in enumerate(formulainorg_mod):
+                        if i < min(index_digit):
+                            grupo_positivo.append(v)
+                        if i > min(index_digit) and i <= max(index_digit):
+                            grupo_negativo.append(v)
+                    grupo_positivo.append('+')
+                    grupo_negativo.append('-')
+                    grupo_negativo.append(formulainorg_mod[min(index_digit)])
 
-                print(grupo_positivo, '+')
-                print(grupo_negativo, '-')
-
-                if grupo_negativo.count('1') > 1:
-                    grupo_negativo.remove('1')
-                    grupo_negativo.remove('1')
-                print(grupo_negativo, 'final')
+                    if grupo_negativo.count('1') > 1:
+                        grupo_negativo.remove('1')
+                        grupo_negativo.remove('1')
         else:
+            print('entra acolá')
             for i, v in enumerate(formulainorg_mod):
                 if str(v).isdigit() == True:
                     index_digit.append(i)
@@ -248,17 +260,19 @@ def nomeclaturainorg(formulainorg):
                 grupo_negativo.append('-')
                 grupo_negativo.append(formulainorg_mod[min(index_digit)])
             else:
+                print('ou')
                 for i, v in enumerate(formulainorg_mod):
                     if i < min(index_digit):
                         grupo_positivo.append(v)
-                    if i > min(index_digit) and i <= max(index_digit):
+                    if i > min(index_digit) and i < max(index_digit):
                         grupo_negativo.append(v)
                 grupo_positivo.append('+')
+                grupo_positivo.append(formulainorg_mod[max(index_digit)])
                 grupo_negativo.append('-')
                 grupo_negativo.append(formulainorg_mod[min(index_digit)])
 
-            print(grupo_positivo, '+')
-            print(grupo_negativo, '-')
+        print(grupo_positivo, '+')
+        print(grupo_negativo, '-')
 
         for i, v in enumerate(nomenclatura_ânions):
             if grupo_negativo == v['ânion']:
