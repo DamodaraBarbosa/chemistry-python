@@ -169,32 +169,83 @@ def nomeclaturainorg(formulainorg, formulamostrada):
                 grupo_positivo.append('+')
             if i > min(index_digit) and i <= max(index_digit):
                 grupo_óxido.append(v)
-                try:
-                    if formulainorg[max(index_digit)] == '1':
-                        grupo_óxido.remove(f'{formulainorg[max(index_digit)]}')
-                except ValueError:
-                    pass
-        print(grupo_óxido, 'teste')
-        if grupo_óxido == ['O']:
+        
+        # para um óxido
+        if str(formulainorg[1]).isdigit() == True and formulainorg[1] == '1' and str(formulainorg[3]).isdigit() == True and formulainorg[3] == '1':
             grupo_positivo.append('2')
+            grupo_óxido.remove('1')
+        elif str(formulainorg[1]).isdigit() == True and formulainorg[1] != '1' and str(formulainorg[3]).isdigit() == True and formulainorg[3] != '1':
+            grupo_positivo.append(formulainorg[max(index_digit)])
+            grupo_óxido.remove(formulainorg[len(formulainorg)-1])
+        elif str(formulainorg[1]).isdigit() == True and formulainorg[1] != '1' and str(formulainorg[3]).isdigit() == True and formulainorg[3] == '1':
+            grupo_óxido.remove(formulainorg[len(formulainorg)-1])
         
-        c = 0
+        # verificando se o grupo positivo se encontra na lista nomenclatura_cátions
+        o1 = 0
 
-        for i, v in enumerate(nomenclatura_óxidos):
-            if grupo_óxido == nomenclatura_óxidos[i]['fórmula']:
-                pass
-            else:
-                c += 1
-        if c == 3:
-            for i, v in enumerate(grupo_óxido):
-                if str(v).isdigit() == True:
-                    grupo_positivo.append(v)
-                    grupo_óxido.remove(f'{v}')
+        for i, v in enumerate(nomenclatura_cátions):
+            if grupo_positivo == nomenclatura_cátions[i]['cátion']:
+                o1 += 1
+        if o1 == 1:
+            for i, v in enumerate(nomenclatura_óxidos):
+                if grupo_óxido == nomenclatura_óxidos[i]['fórmula']:
+                    print(f'Com nomenclatura: {v["nomenclatura"]} de', end= ' ')
+            for i, v in enumerate(nomenclatura_cátions):
+                if grupo_positivo == nomenclatura_cátions[i]['cátion']:
+                    print(f'{v["nomenclatura"]}.')
+        else:
+            print('Óxido que não se encaixa')
+
+        print(grupo_positivo)
+        print(grupo_óxido)
+
+        #         try:
+        #             print(grupo_positivo, 'antes do try')
+        #             print(grupo_óxido, 'antes do try')
+        #             # if formulainorg[min(index_digit)] != '1' and formulainorg[max(index_digit)] != '1':
+        #             #     grupo_positivo.append(formulainorg[max(index_digit)])
+        #             #     grupo_óxido.append(formulainorg[min(index_digit)])
+        #             if formulainorg[max(index_digit)] == '1':
+        #                 grupo_óxido.remove(f'{formulainorg[max(index_digit)]}')
+        #         except ValueError:
+        #             pass
+        # print(grupo_óxido, 'teste')
+        # if grupo_óxido == ['O']:
+        #     grupo_positivo.append('2')
         
-        print(grupo_positivo, 'teste')
-        print(grupo_óxido, 'final')
+        # c1 = 0
 
-        for i, v in enumerate()
+        # for i, v in enumerate(nomenclatura_óxidos):
+        #     if grupo_óxido == nomenclatura_óxidos[i]['fórmula']:
+        #         pass
+        #     else:
+        #         c1 += 1
+        # if c1 == 3:
+        #     for i, v in enumerate(grupo_óxido):
+        #         if str(v).isdigit() == True:
+        #             grupo_positivo.append(v)
+        #             grupo_óxido.remove(f'{v}')
+        
+        # print(grupo_positivo, 'final')
+        # print(grupo_óxido, 'final')
+
+        # c2 = 0
+
+        # for i, v in enumerate(nomenclatura_cátions):
+        #     if grupo_positivo == nomenclatura_cátions[i]['cátion']:
+        #         c2 += 1
+        #     else:
+        #         pass
+        # if c2 == 1:
+        #     for i, v in enumerate(nomenclatura_óxidos):
+        #         if grupo_óxido == nomenclatura_óxidos[i]['fórmula']:
+        #             print(f'Com nomenclatura: {v["nomenclatura"]} de', end= ' ')
+        #     for i, v in enumerate(nomenclatura_cátions):
+        #         if grupo_positivo == nomenclatura_cátions[i]['cátion']:
+        #             print(f'{v["nomenclatura"]}')
+
+
+
         linha()
 
 
@@ -279,7 +330,7 @@ def nomeclaturainorg(formulainorg, formulamostrada):
                 
                 print(f'A espécie química {formulamostrada} é inorgânica.')
                 for i, v in enumerate(nomenclatura_ânions):
-                    if grupo_negativo == v['ânion']:
+                    if grupo_negativo == v['fórmula']:
                         print(f'Com nomenclatura: {v["nomenclatura"]} de', end=' ')
                 for i, v in enumerate(nomenclatura_cátions):
                     if grupo_positivo == v['cátion']:
