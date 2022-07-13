@@ -1,7 +1,7 @@
 import funções
+import nomenclatura
 from mendeleev import element
 from googletrans import Translator
-from chemspipy import ChemSpider 
 
 formula_mostrada = list()
 formula_dados = list()
@@ -202,7 +202,7 @@ while True:
         elif escolha == 5:
             if 'C' not in formula:
                 funções.cabeçalhoop5inorg(''.join(formula_mostrada[0:]))
-                funções.nomeclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
+                nomenclatura.nomenclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
             else:
                 index_carbono = list()
                 formula = list(formula)
@@ -215,14 +215,14 @@ while True:
                         formula = formula[formula.index('C'):]
                 if formula in carbono_inorg:
                     funções.cabeçalhoop5inorg(''.join(formula_mostrada[0:]))
-                    funções.nomeclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
+                    nomenclatura.nomenclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
                 elif grupo_parêntese != []:
                     if grupo_parêntese in carbono_inorg:
                         funções.cabeçalhoop5inorg(''.join(formula_mostrada[0:]))
                         for i, v in enumerate(formula_inorg):
                             if str(v).isalpha() == True and formula_inorg[i+1] == '(':
                                 formula_inorg.insert(i+1,'1')
-                        funções.nomeclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
+                        nomenclatura.nomenclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
                 else:
                     print('Espécie química orgânica.')
                     for i, v in enumerate(formula_mostrada):
