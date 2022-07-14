@@ -5,25 +5,26 @@ def nomenclaturainorg(formulainorg, formulamostrada):
     from mendeleev import element
     from googletrans import Translator
     # nomenclatura dos óxidos
+    teste_óxido = list()
+    grupo_positivo = list()
+    grupo_óxido = list()
+    index_digit= list()
+
     cont = 0 
 
-    teste_óxido = list()
-
+    print(formulainorg)
     for i, v in enumerate(formulainorg):
         if str(v).isalpha() == True:
             teste_óxido.append(v)
-    if len(teste_óxido) == 2 and 'O' in teste_óxido:
+    if len(teste_óxido) == 2 and 'O' in teste_óxido and formulainorg[3] != '2':
         nomenclatura_cátions = [{'cátion': ['Li', '+'], 'nomenclatura': 'lítio', 'carga': '1'}, {'cátion': ['Na', '+'], 'nomenclatura': 'sódio', 'carga': '1'}, {'cátion': ['K', '+'], 'nomenclatura': 'potássio', 'carga': '1'}, {'cátion': ['Rb', '+'], 'nomenclatura': 'rubídio', 'carga': '1'}, {'cátion': ['Cs', '+'], 'nomenclatura': 'césio', 'carga': '1'}, {'cátion': ['Fr', '+'], 'nomenclatura': 'frâncio', 'carga': '1'}, {'cátion': ['Ag','+'], 'nomenclatura': 'prata', 'carga': '1'}, {'cátion': ['Cu', '+'], 'nomenclatura': 'cobre ou cuproso', 'carga': '1'}, {'cátion': ['Au', '+'], 'nomenclatura': 'ouro', 'carga': '1'}, {'cátion': ['N', 'H', '4', '+'], 'nomenclatura': 'amônio', 'carga': '1'}, {'cátion': ['Be', '+', '2'], 'nomenclatura': 'berílio', 'carga': '2'}, {'cátion': ['Mg', '+', '2'], 'nomenclatura': 'magnésio', 'carga': '2'}, {'cátion': ['Ca', '+', '2'], 'nomenclatura': 'cálcio', 'carga': '2'}, {'cátion': ['Sr', '+', '2'], 'nomenclatura': 'estrôncio', 'carga': '2'}, {'cátion': ['Ba', '+', '2'], 'nomenclatura': 'bário', 'carga': '2'}, {'cátion': ['Rd', '+', '2'], 'nomenclatura': 'rádio', 'carga': '2'}, {'cátion': ['Zn', '+', '2'], 'nomenclatura': 'zinco', 'carga': '2'}, {'cátion': ['Cd', '+', '2'], 'nomenclatura': 'cádmio', 'carga': '2'}, {'cátion': ['Cu', '+', '2'], 'nomenclatura': 'cobre (II) ou cupríco', 'carga': '2'}, {'cátion': ['Hg', '+', '2'], 'nomenclatura': 'mercúrio (II) ou mercúrico', 'carga': '2'}, {'cátion': ['Fe', '+', '2'], 'nomenclatura': 'ferro (II) ou ferroso', 'carga': '2'}, {'cátion': ['Co', '+', '2'], 'nomenclatura': 'cobalto', 'carga': '2'}, 
         {'cátion': ['Ni', '+', '2'], 'nomenclatura': 'níquel (II) ou niqueloso', 'carga': '2'}, {'cátion': ['Cr', '+', '2'], 'nomenclatura': 'cromo (II) ou cromoso', 'carga': '2'}, {'cátion': ['Mn', '+', '2'], 'nomenclatura': 'manganês (II) ou manganoso', 'carga': '2'}, {'cátion': ['Sn', '+', '2'], 'nomenclatura': 'estanho(II) ou estanhoso', 'carga': '2'}, {'cátion': ['Pb', '+','2'], 'nomenclatura': 'chumbo (II) ou plumboso', 'carga': '2'}, {'cátion': ['Ti', '+', '2'], 'nomenclatura': 'titânio (II) ou titanoso', 'carga': '2'}, {'cátion': ['Pt', '+', '2'], 'nomenclatura': 'platina (II) ou platinoso', 'carga': '2'}, {'cátion': ['Al', '+', '3'], 'nomenclatura': 'alumínio', 'carga': '3'}, {'cátion': ['Bi', '+', '3'], 'nomenclatura': 'bismuto', 'carga': '3'}, {'cátion': ['Au', '+', '3'], 'nomenclatura': 'ouro (III) ou áurico', 'carga': '3'}, {'cátion': ['Fe', '+', '3'], 'nomenclatura': 'ferro (III) ou férrico', 'carga': '3'}, {'cátion': ['Co', '+', '3'], 'nomenclatura': 'cobalto (III) ou cobáltico', 'carga': '3'}, {'cátion': ['Ni', '+', '3'], 'nomenclatura': 'níquel (III) ou niquélico', 'carga': '3'}, {'cátion': ['Cr', '+', '3'], 'nomenclatura': 'cromo (III) ou crômico', 'carga': '3'}, {'cátion': ['Sn', '+', '4'], 'nomenclatura': 'estanho (IV) ou estânico', 'carga': '4'}, {'cátion': ['Pb', '+', '4'], 'nomenclatura': 'chumbo (IV) ou plúmbico', 'carga': '4'}, {'cátion': ['Ti', '+', '4'], 'nomenclatura': 'titânio (IV) ou titânico', 'carga': '4'}, {'cátion': ['Pt', '+', '4'], 'nomenclatura': 'platina (IV) ou platínico', 'carga': '4'}, 
         {'cátion': ['Mn', '+', '4'], 'nomenclatura': 'manganês (IV) ou mangânico', 'carga': '4'}, {'cátion': ['Cr', '+', '6'], 'nomenclatura':'cromo (VI)', 'carga': '6'}]
         nomenclatura_óxidos = [{'fórmula': ['O'], 'nomenclatura': 'óxido', 'nox': '-2'}, {'fórmula': ['O', '2'], 'nomenclatura': 'peróxido', 'nox': '-1'}, {'fórmula': ['O', '4'], 'nomenclatura': 'superóxido', 'nox': '-1/2'}]
-        grupo_positivo = list()
-        grupo_óxido = list()
-        index_digit= list()
 
         cont += 1
         
-        print('É um óxido')
+        print(f'A espécie química {formulamostrada} é um óxido')
         for i, v in enumerate(formulainorg):
             if str(v).isdigit() == True:
                 index_digit.append(i)
@@ -103,67 +104,19 @@ def nomenclaturainorg(formulainorg, formulamostrada):
             elif quantidade_elemento == 5:
                 print(f'penta{"".join(nome_elemento[0:])}')
             
+    elif len(teste_óxido) == 2 and 'O' in teste_óxido and formulainorg[3] == '2':
+        for i, v in enumerate(formulainorg):
+            if str(v).isdigit() == True:
+                index_digit.append(i)
+        for i, v in enumerate(formulainorg):
+            if i < min(index_digit):
+                grupo_positivo.append(v)
+            if i > min(index_digit) and i <= max(index_digit):
+                grupo_óxido.append(v)
             
-            
-            
 
-            print(nome_elemento)
-
-
-        print(grupo_positivo)
-        print(grupo_óxido)
-
-        #         try:
-        #             print(grupo_positivo, 'antes do try')
-        #             print(grupo_óxido, 'antes do try')
-        #             # if formulainorg[min(index_digit)] != '1' and formulainorg[max(index_digit)] != '1':
-        #             #     grupo_positivo.append(formulainorg[max(index_digit)])
-        #             #     grupo_óxido.append(formulainorg[min(index_digit)])
-        #             if formulainorg[max(index_digit)] == '1':
-        #                 grupo_óxido.remove(f'{formulainorg[max(index_digit)]}')
-        #         except ValueError:
-        #             pass
-        # print(grupo_óxido, 'teste')
-        # if grupo_óxido == ['O']:
-        #     grupo_positivo.append('2')
         
-        # c1 = 0
-
-        # for i, v in enumerate(nomenclatura_óxidos):
-        #     if grupo_óxido == nomenclatura_óxidos[i]['fórmula']:
-        #         pass
-        #     else:
-        #         c1 += 1
-        # if c1 == 3:
-        #     for i, v in enumerate(grupo_óxido):
-        #         if str(v).isdigit() == True:
-        #             grupo_positivo.append(v)
-        #             grupo_óxido.remove(f'{v}')
-        
-        # print(grupo_positivo, 'final')
-        # print(grupo_óxido, 'final')
-
-        # c2 = 0
-
-        # for i, v in enumerate(nomenclatura_cátions):
-        #     if grupo_positivo == nomenclatura_cátions[i]['cátion']:
-        #         c2 += 1
-        #     else:
-        #         pass
-        # if c2 == 1:
-        #     for i, v in enumerate(nomenclatura_óxidos):
-        #         if grupo_óxido == nomenclatura_óxidos[i]['fórmula']:
-        #             print(f'Com nomenclatura: {v["nomenclatura"]} de', end= ' ')
-        #     for i, v in enumerate(nomenclatura_cátions):
-        #         if grupo_positivo == nomenclatura_cátions[i]['cátion']:
-        #             print(f'{v["nomenclatura"]}')
-
-
-
         linha()
-
-
-        
         
     else:    
         # nomenclatura dos ácidos e bases
