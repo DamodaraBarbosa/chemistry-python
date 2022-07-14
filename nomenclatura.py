@@ -6,7 +6,7 @@ def nomenclaturainorg(formulainorg, formulamostrada):
     from googletrans import Translator
 
     # outras substâncias inorgânicas importantes
-    subs_inorgânica = [{'fórmula': ['H', '2', 'O', '1'], 'nomenclatura': 'água'}, {'fórmula': ['O', '2'], 'nomenclatura': 'oxigênio'}, {'fórmula': ['O', '3'], 'nomenclatura': 'ozônio'}, {'fórmula': ['H', '2'], 'nomenclatura': 'hidrogênio'}, {'fórmula': [' N', '2'], 'nomenclatura': 'nitrogênio'}, {'fórmula': ['F', '2'], 'nomenclatura': 'flúor'}, {'fórmula': ['Cl', '2'], 'nomenclatura': 'cloro'}, {'fórmula': ['Br', '2'], 'nomenclatura': 'bromo'}, {'fórmula': ['I', '2'], 'nomenclatura': 'iodo'}, {'fórmula': ['O', '2'], 'nomenclatura': 'água'}, {'fórmula': ['Ar', '1'], 'nomenclatura': 'argônio'}, {'fórmula': ['He', '1'], 'nomenclatura': 'hélio'}, {'fórmula': ['Ne', '1'], 'nomenclatura': 'neônio'}, {'fórmula': ['Xe', '1'], 'nomenclatura': 'xenônio'}, {'fórmula': ['Kr', '1'], 'nomenclatura': 'criptônio'}]
+    subs_inorgânica = [{'fórmula': ['H', '2', 'O', '1'], 'nomenclatura': 'água'}, {'fórmula': ['O', '2'], 'nomenclatura': 'oxigênio'}, {'fórmula': ['O', '3'], 'nomenclatura': 'ozônio'}, {'fórmula': ['H', '2'], 'nomenclatura': 'hidrogênio'}, {'fórmula': ['N', '2'], 'nomenclatura': 'nitrogênio'}, {'fórmula': ['F', '2'], 'nomenclatura': 'flúor'}, {'fórmula': ['Cl', '2'], 'nomenclatura': 'cloro'}, {'fórmula': ['Br', '2'], 'nomenclatura': 'bromo'}, {'fórmula': ['I', '2'], 'nomenclatura': 'iodo'}, {'fórmula': ['O', '2'], 'nomenclatura': 'água'}, {'fórmula': ['Ar', '1'], 'nomenclatura': 'argônio'}, {'fórmula': ['He', '1'], 'nomenclatura': 'hélio'}, {'fórmula': ['Ne', '1'], 'nomenclatura': 'neônio'}, {'fórmula': ['Xe', '1'], 'nomenclatura': 'xenônio'}, {'fórmula': ['Kr', '1'], 'nomenclatura': 'criptônio'}]
     
     si = 0
 
@@ -15,6 +15,7 @@ def nomenclaturainorg(formulainorg, formulamostrada):
             si += 1
     if si == 1:
         print(f'A espécie química {formulamostrada} é inorgânica.')
+        linha()
         for i, v in enumerate(subs_inorgânica):
             if formulainorg == subs_inorgânica[i]['fórmula']:
                 print(f'Com nomenclatura: {v["nomenclatura"]}')
@@ -206,7 +207,7 @@ def nomenclaturainorg(formulainorg, formulamostrada):
                     print(f'A espécie química {formulamostrada} é uma base.')
                     print(f'Com nomenclatura: {v["nomenclatura"]}.')
                     cont += 1
-            linha()
+    
             if cont < 1:
             # nomenclatura dos sais 
                 nomenclatura_cátions = [{'cátion': ['Li', '+'], 'nomenclatura': 'lítio'}, {'cátion': ['Na', '+'], 'nomenclatura': 'sódio'}, {'cátion': ['K', '+'], 'nomenclatura': 'potássio'}, {'cátion': ['Rb', '+'], 'nomenclatura': 'rubídio'}, {'cátion': ['Cs', '+'], 'nomenclatura': 'césio'}, {'cátion': ['Fr', '+'], 'nomenclatura': 'frâncio'}, {'cátion': ['Ag','+'], 'nomenclatura': 'prata'}, {'cátion': ['Cu', '+'], 'nomenclatura': 'cobre ou cuproso'}, {'cátion': ['Au', '+'], 'nomenclatura': 'ouro'}, {'cátion': ['N', 'H', '4', '+'], 'nomenclatura': 'amônio'}, {'cátion': ['Be', '+', '2'], 'nomenclatura': 'berílio'}, {'cátion': ['Mg', '+', '2'], 'nomenclatura': 'magnésio'}, {'cátion': ['Ca', '+', '2'], 'nomenclatura': 'cálcio'}, {'cátion': ['Sr', '+', '2'], 'nomenclatura': 'estrôncio'}, {'cátion': ['Ba', '+', '2'], 'nomenclatura': 'bário'}, {'cátion': ['Rd', '+', '2'], 'nomenclatura': 'rádio'}, {'cátion': ['Zn', '+', '2'], 'nomenclatura': 'zinco'}, {'cátion': ['Cd', '+', '2'], 'nomenclatura': 'cádmio'}, {'cátion': ['Cu', '+', '2'], 'nomenclatura': 'cobre (II) ou cupríco'}, {'cátion': ['Hg', '+', '2'], 'nomenclatura': 'mercúrio (II) ou mercúrico'}, {'cátion': ['Fe', '+', '2'], 'nomenclatura': 'ferro (II) ou ferroso'}, {'cátion': ['Co', '+', '2'], 'nomenclatura': 'cobalto'}, 
@@ -460,6 +461,8 @@ def nomenclaturainorg(formulainorg, formulamostrada):
                         if grupo_positivo == v['cátion']:
                             contfinal += 1
                     if contfinal == 2:
+                        print(f'A espécie química {formulamostrada} é inorgânica.')
+                        linha()
                         for i, v in enumerate(nomenclatura_ânions):
                             if grupo_negativo == v['ânion']:
                                 print(f'Com nomenclatura: {v["nomenclatura"]} de', end=' ')

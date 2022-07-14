@@ -139,21 +139,44 @@ def nomenclaturaíon(formulaion):
 
 
 def grupamentofuncional(grupamento):
+    quantidade_C = 0
+    quantidade_H = 0
+    quantidade_elemento = 0
+
     for i, v in enumerate(grupamento):
-        try:
-            if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O':
-                print('Álcool')
-            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H':
-                print('Ácido carboxílico')
-            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
-                print('Éster')                                                                        
-            if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
-                print('Éter')
-            if grupamento[i] == 'C' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'O':
-                print('Aldeído')
-            if grupamento[i] == 'O' and grupamento[i-1] == 'C':
-                print('Cetona') 
-            if grupamento[i] == 'N' and grupamento[i-1] == 'H' and grupamento[-2] == 'C' or grupamento[i] == 'N' and grupamento[i-1] == 'C':
-                print('Amina')
-        except IndexError:
-            pass
+        if str(v).isalpha() == True:
+            quantidade_elemento += 1
+        if v == 'C':
+            quantidade_C += 1
+        elif v == 'H':
+            quantidade_H += 1
+    print('C:', quantidade_C, 'H:', quantidade_H)
+    print('elemento:', quantidade_elemento)
+    if (quantidade_C + quantidade_H) == quantidade_elemento:
+        linha()
+        print('É um hidrocarboneto!')
+        H_esperados = (quantidade_C*2)+2
+        insaturações = (H_esperados - quantidade_H)/2
+        separador = ''
+        print(f'O número de insaturações no hidrocarboneto de fórmula {separador.join(grupamento[0:])} é: {insaturações}.')
+    else:    
+        for i, v in enumerate(grupamento):
+            try:
+                if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O':
+                    print('Álcool')
+                if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H':
+                    print('Ácido carboxílico')
+                if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
+                    print('Éster')                                                                        
+                if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
+                    print('Éter')
+                if grupamento[i] == 'C' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'O':
+                    print('Aldeído')
+                if grupamento[i] == 'O' and grupamento[i-1] == 'C' and grupamento[i+1] == 'C' and grupamento[i-4] == 'C':
+                    print('Cetona') 
+                if grupamento[i] == 'N' and (grupamento[i-1] == 'H' or str(grupamento[i-1]).isdigit() == True) and (grupamento[i-2] == 'C' or grupamento[i-2] == 'H') and grupamento[i-3] == 'C' or grupamento[i] == 'N' and grupamento[i-1] == 'C' and (grupamento[i+1] == 'C' or grupamento[i+1] == 'H'):
+                    print('Amina')
+                if grupamento[i] == 'N' and grupamento[i-1] == 'O' and (grupamento[i+1] == 'H' or grupamento[i+1] == 'C') or grupamento[i] == 'N' and (grupamento[i+1] == 'H' or grupamento[i+1] == 'C') and grupamento[i+2] == 'C' and grupamento[i+3] == 'O':
+                    print('Amida')
+            except IndexError:
+                pass
