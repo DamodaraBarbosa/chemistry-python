@@ -224,12 +224,11 @@ while True:
                                 formula_inorg.insert(i+1,'1')
                         nomenclatura.nomenclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
                 else:
-                    print('Espécie química orgânica.')
+                    print(f'Espécie química {''.join(formula_mostrada[0:])} orgânica.')
                     for i, v in enumerate(formula_mostrada):
                         formulagrupamento = ''.join(formula_mostrada[0:len(formula_mostrada)])
-            # print(formulagrupamento)
-            # funções.grupamentofuncional(formulagrupamento)
-            # funções.linha()
+            funções.grupamentofuncional(formulagrupamento)
+            funções.linha()
         elif escolha == 9:
             funções.linha()
             break

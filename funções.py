@@ -141,15 +141,15 @@ def nomenclaturaíon(formulaion):
 def grupamentofuncional(grupamento):
     for i, v in enumerate(grupamento):
         try:
-            if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] != 'O':
+            if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O':
                 print('Álcool')
-            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H' or grupamento[i] == 'H' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
+            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H':
                 print('Ácido carboxílico')
-            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C' or grupamento[i] == 'C' and grupamento[i-1] == 'O' and grupamento[i-2] == 'O' and grupamento[i-3] != 'H':
+            if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
                 print('Éster')                                                                        
             if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
                 print('Éter')
-            if grupamento[i] == 'C' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'O' or grupamento[i] == '0' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'C':
+            if grupamento[i] == 'C' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'O':
                 print('Aldeído')
             if grupamento[i] == 'O' and grupamento[i-1] == 'C':
                 print('Cetona') 
