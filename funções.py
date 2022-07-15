@@ -1,3 +1,6 @@
+from ast import Index
+
+
 def linha():
     print('\033[1;33m--\033[m'*38)
 
@@ -142,7 +145,7 @@ def grupamentofuncional(grupamento):
     quantidade_C = 0
     quantidade_H = 0
     quantidade_elemento = 0
-
+    
     for i, v in enumerate(grupamento):
         if str(v).isalpha() == True:
             quantidade_elemento += 1
@@ -154,11 +157,48 @@ def grupamentofuncional(grupamento):
     print('elemento:', quantidade_elemento)
     if (quantidade_C + quantidade_H) == quantidade_elemento:
         linha()
+
+        novo_grupamento = list()
+
         print('É um hidrocarboneto!')
-        H_esperados = (quantidade_C*2)+2
-        insaturações = (H_esperados - quantidade_H)/2
+        for i, v in enumerate(grupamento):
+            novo_grupamento.append(v)
+        for i, v in enumerate(novo_grupamento):
+            if str(v).isalpha() == False:
+                indice_num = str.maketrans('₀₁₂₃₄₅₆₇₈₉', '0123456789')
+                novo_grupamento[i] = str(novo_grupamento[i]).translate(indice_num)
+        for i, v in enumerate(novo_grupamento):
+            cont = 0
+            if str(novo_grupamento[len(novo_grupamento)-1]).isalpha() == True:
+                novo_grupamento.insert(len(novo_grupamento), '1')
+            try:
+                if str(novo_grupamento[i]).isalpha() == True and str(novo_grupamento[i+1]).isalpha() == True:
+                    if i == 0:
+                        novo_grupamento.insert(1, '1')
+                    else:
+                        cont += 1
+                        novo_grupamento.insert(i+cont, '1')
+            except IndexError:
+                pass
+            
+        novo_grupamento_2 = list()
+        
+        for i, v in enumerate(novo_grupamento):
+            if str(novo_grupamento[i]).isdigit() == True and str(novo_grupamento[i-1]).isalpha() == True:
+                novo_grupamento_2.append(novo_grupamento[i-1]*int(novo_grupamento[i]))
+        
+        novo_grupamento_3 = list()
+
+        for i, v in enumerate(novo_grupamento_2):
+            for i, v in enumerate(novo_grupamento_2[i]):
+                novo_grupamento_3.append(v)
+
+        num_C = novo_grupamento_3.count('C')
+        num_H = novo_grupamento_3.count('H')
+        H_esperados = (num_C*2)+2
+        insaturações = (H_esperados - num_H)/2
         separador = ''
-        print(f'O número de insaturações no hidrocarboneto de fórmula {separador.join(grupamento[0:])} é: {insaturações}.')
+        print(f'O número de insaturações no hidrocarboneto de fórmula {separador.join(grupamento[0:])} é: {insaturações:.0f}.')
     else:    
         for i, v in enumerate(grupamento):
             try:
