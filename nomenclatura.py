@@ -142,7 +142,7 @@ def nomenclaturainorg(formulainorg, formulamostrada):
             for i, v in enumerate(nome_elemento):
                 letra = str.maketrans('ABCDEFGHIJKLMNOPQRSTUWXYZ', 'abcdefghijklmnopqrstuwxyz')
                 nome_elemento[0] = str(nome_elemento[0]).translate(letra)
-            print(''.join(nome_elemento[0:]))
+            print(f"{''.join(nome_elemento[0:])}.")
             linha()
         # para nomenclatura de um peróxido       
         elif len(teste_óxido) == 2 and 'O' in teste_óxido and formulainorg[3] == '2' and formulainorg[0] not in ['C', 'N', 'P', 'O', 'S', 'Se', 'F', 'Cl', 'Br', 'I', 'At']:

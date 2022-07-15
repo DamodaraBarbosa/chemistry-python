@@ -69,6 +69,13 @@ def cabeçalhoop5inorg(formulamostrada):
     print(f'\tESPÉCIE QUÍMICA {formulamostrada}')
     linha2()
 
+
+def cabeçalhoop5org(formulamostrada):
+    linha2()
+    print(f'\tESPÉCIE QUÍMICA {formulamostrada}')
+    linha2()
+
+
 def funíon(mostrada):
     for i, v in enumerate(mostrada):
         if v == '+':
@@ -153,8 +160,6 @@ def grupamentofuncional(grupamento):
             quantidade_C += 1
         elif v == 'H':
             quantidade_H += 1
-    print('C:', quantidade_C, 'H:', quantidade_H)
-    print('elemento:', quantidade_elemento)
     if (quantidade_C + quantidade_H) == quantidade_elemento:
         linha()
 
@@ -199,24 +204,53 @@ def grupamentofuncional(grupamento):
         insaturações = (H_esperados - num_H)/2
         separador = ''
         print(f'O número de insaturações no hidrocarboneto de fórmula {separador.join(grupamento[0:])} é: {insaturações:.0f}.')
-    else:    
+        linha()
+        print('Possíveis tipos de ligação:')
+        linha()
+        if insaturações == 0:
+            print('Somente ligações simples.')
+        elif insaturações == 1:
+            print('Uma ligação dupla: é um alceno.')
+        elif insaturações == 2:
+            print('Duas ligações duplas: alcadieno')
+            print('ou')
+            print('Uma ligação tripla: alcino.')
+        elif insaturações == 3:
+            print('Três ligações duplas')
+            print('ou')
+            print('Uma ligação tripla e uma dupla.')
+        elif insaturações == 4:
+            print('Quatro ligações duplas')
+            print('ou')
+            print('Duas ligações triplas')
+            print('ou')
+            print('Uma ligação tripla e duas duplas.')
+        
+    else:
+        linha()
+        print('Funções orgânicas presentes: ')  
+        linha()  
         for i, v in enumerate(grupamento):
             try:
                 if grupamento[i] == 'O' and grupamento[i+1] == 'H' and grupamento[i-1] != 'O':
-                    print('Álcool')
+                    print('Álcool (R-OH)')
                 if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'H':
-                    print('Ácido carboxílico')
-                if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
-                    print('Éster')                                                                        
+                    print('Ácido carboxílico (R-COOH)')
                 if grupamento[i] == 'O' and grupamento[i+1] == 'C' and grupamento[i-2] == 'H' and grupamento[i-3] == 'C':
-                    print('Éter')
+                    print('Éter (R-O-R)')
                 if grupamento[i] == 'C' and grupamento[i+1]  == 'H' and grupamento[i+2] == 'O':
-                    print('Aldeído')
-                if grupamento[i] == 'O' and grupamento[i-1] == 'C' and grupamento[i+1] == 'C' and grupamento[i-4] == 'C':
-                    print('Cetona') 
-                if grupamento[i] == 'N' and (grupamento[i-1] == 'H' or str(grupamento[i-1]).isdigit() == True) and (grupamento[i-2] == 'C' or grupamento[i-2] == 'H') and grupamento[i-3] == 'C' or grupamento[i] == 'N' and grupamento[i-1] == 'C' and (grupamento[i+1] == 'C' or grupamento[i+1] == 'H'):
-                    print('Amina')
+                    print('Aldeído (R-CHO)')
+                if grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C' and grupamento[i+4] == 'O':
+                    print('Anidrido (R-(C==O)O(C==O)-R')
+                elif grupamento[i] == 'C' and grupamento[i+1] == 'O' and grupamento[i+2] == 'O' and grupamento[i+3] == 'C':
+                    print('Éster (R-COO-R)')
+                if grupamento[i] == 'O' and grupamento[i-1] == 'C' and grupamento[i-2] != 'O' and grupamento[i+1] == 'C' and grupamento[i-4] == 'C':
+                    print('Cetona (R-(C==O)-R)')
                 if grupamento[i] == 'N' and grupamento[i-1] == 'O' and (grupamento[i+1] == 'H' or grupamento[i+1] == 'C') or grupamento[i] == 'N' and (grupamento[i+1] == 'H' or grupamento[i+1] == 'C') and grupamento[i+2] == 'C' and grupamento[i+3] == 'O':
-                    print('Amida')
+                    print('Amida (N-(C==0)-R)')
+                if grupamento[i] == 'N' and grupamento[i+1] == 'O' and grupamento[i+2] == '₂':
+                    print('Nitrocomposto (R-NO₂)')
+                elif grupamento[i] == 'N' and (grupamento[i-1] == 'H' or str(grupamento[i-1]).isdigit() == True) and (grupamento[i-2] == 'C' or grupamento[i-2] == 'H') and grupamento[i-3] == 'C' or grupamento[i] == 'N' and grupamento[i-1] == 'C' and (grupamento[i+1] == 'C' or grupamento[i+1] == 'H'):
+                    print('Amina R-NR₂')
             except IndexError:
                 pass

@@ -224,9 +224,10 @@ while True:
                                 formula_inorg.insert(i+1,'1')
                         nomenclatura.nomenclaturainorg(formula_inorg, ''.join(formula_mostrada[0:]))
                 else:
-                    print(f'Espécie química {separator.join(formula_mostrada[0:])} é orgânica.')
                     for i, v in enumerate(formula_mostrada):
                         formulagrupamento = ''.join(formula_mostrada[0:len(formula_mostrada)])
+                    funções.cabeçalhoop5org(formulagrupamento)
+                    print(f'Espécie química {separator.join(formula_mostrada[0:])} é orgânica.')
                     funções.grupamentofuncional(formulagrupamento)
                     funções.linha()
         elif escolha == 9:
