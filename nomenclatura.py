@@ -3,7 +3,8 @@ def linha():
 
 def nomenclaturainorg(formulainorg, formulamostrada):
     from mendeleev import element
-    from googletrans import Translator
+    from deep_translator import GoogleTranslator
+    # from googletrans import Translator
 
     # outras substâncias inorgânicas importantes
     subs_inorgânica = [{'fórmula': ['H', '2', 'O', '1'], 'nomenclatura': 'água'}, {'fórmula': ['O', '2'], 'nomenclatura': 'oxigênio'}, {'fórmula': ['O', '3'], 'nomenclatura': 'ozônio'}, {'fórmula': ['H', '2'], 'nomenclatura': 'hidrogênio'}, {'fórmula': ['N', '2'], 'nomenclatura': 'nitrogênio'}, {'fórmula': ['F', '2'], 'nomenclatura': 'flúor'}, {'fórmula': ['Cl', '2'], 'nomenclatura': 'cloro'}, {'fórmula': ['Br', '2'], 'nomenclatura': 'bromo'}, {'fórmula': ['I', '2'], 'nomenclatura': 'iodo'}, {'fórmula': ['O', '2'], 'nomenclatura': 'água'}, {'fórmula': ['Ar', '1'], 'nomenclatura': 'argônio'}, {'fórmula': ['He', '1'], 'nomenclatura': 'hélio'}, {'fórmula': ['Ne', '1'], 'nomenclatura': 'neônio'}, {'fórmula': ['Xe', '1'], 'nomenclatura': 'xenônio'}, {'fórmula': ['Kr', '1'], 'nomenclatura': 'criptônio'}]
@@ -101,10 +102,12 @@ def nomenclaturainorg(formulainorg, formulamostrada):
                     print('Pentóxido de', end=' ')
 
                 el = element(f'{elemento}')
-                translator = Translator()
-                t = translator.translate(f'{el.name}', src= 'en', dest= 'pt')
+                translated = GoogleTranslator(source='en', target='pt').translate(text=f'{el.name}')
+                # print(f'{translated:<15}', end='    ')
+                # translator = Translator()
+                # t = translator.translate(f'{el.name}', src= 'en', dest= 'pt')
 
-                nome_elemento = list(t.text)
+                nome_elemento = list(translated)
 
                 for i, v in enumerate(nome_elemento):
                     letra = str.maketrans('ABCDEFGHIJKLMNOPQRSTUWXYZ', 'abcdefghijklmnopqrstuwxyz')
@@ -132,12 +135,14 @@ def nomenclaturainorg(formulainorg, formulamostrada):
             print('Com nomenclatura: dióxido de', end= ' ')
             for i, v in enumerate(grupo_positivo):
                 el = element(f'{grupo_positivo[0]}')
-                translator = Translator()
-                t = translator.translate(f'{el.name}', src= 'en', dest= 'pt')
+                translated = GoogleTranslator(source='en', target='pt').translate(text=f'{el.name}')
+                # print(f'{translated:<15}', end='    ')
+                # translator = Translator()
+                # t = translator.translate(f'{el.name}', src= 'en', dest= 'pt')
             
             nome_elemento = list()
 
-            for i, v in enumerate(t.text):
+            for i, v in enumerate(translated):
                 nome_elemento.append(v)
             for i, v in enumerate(nome_elemento):
                 letra = str.maketrans('ABCDEFGHIJKLMNOPQRSTUWXYZ', 'abcdefghijklmnopqrstuwxyz')

@@ -1,7 +1,9 @@
+from matplotlib.pyplot import text
 import funções
 import nomenclatura
 from mendeleev import element
-from googletrans import Translator
+# from googletrans import Translator
+from deep_translator import GoogleTranslator
 
 formula_mostrada = list()
 formula_dados = list()
@@ -151,9 +153,11 @@ while True:
             funções.cabeçalhoop1()
             for i in formula_dados:
                 i = element(f'{i}')
-                translator = Translator()
-                t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
-                print(f'{t.text:<15}', end='     ')
+                translated = GoogleTranslator(source='en', target='pt').translate(text=f'{i.name}')
+                print(f'{translated:<15}', end='    ')
+                # translator = Translator()
+                # t = translator.translate(f'{i.name}', src= 'en', dest= 'pt')
+                # print(f'{t.text:<15}', end='     ')
                 print(f'{i.atomic_number:<26}', end='    ')
                 print(f'{i.atomic_weight:.2f}')
             funções.linha()
@@ -162,9 +166,11 @@ while True:
             funções.cabeçalhoop3()
             for i in formula_contagem_3:
                 el = element(f'{i}')
-                translator = Translator()
-                t = translator.translate(f'{el.name}', src= 'en', dest='pt')
-                print(f'{t.text:<30}', end='')
+                # translator = Translator()
+                # t = translator.translate(f'{el.name}', src= 'en', dest='pt')
+                # print(f'{t.text:<30}', end='')
+                translated = GoogleTranslator(source='en', target='pt').translate(text=f'{el.name}')
+                print(f'{translated:<25}', end='    ')
                 print(formula_contagem_2.count(i))
             funções.linha()
         
