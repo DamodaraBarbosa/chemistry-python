@@ -56,21 +56,33 @@ class Conjunto:
     def max_min_carga(self):
         maior = 0
         menor = 0
+        nome_maior = ''
+        nome_menor = ''
 
         for index, especie in enumerate(self._especies):
             especie.formula_sub()
             especie.carga_ion()
             especie.carga = int(especie.carga)
-            print(especie[0])
-        #     if index == 0:
-        #         maior = menor = especie[0].carga
-        #     else:
-        #         if especie[index].carga > maior:
-        #             maior = especie[index].carga
-        #         if especie[index].carga < menor:
-        #             menor = especie[index].carga
-        # print(maior, '- maior')
-        # print(menor, '- menor')
+            print(especie.carga)
+            if index == 0:
+                maior = menor = especie.carga
+                nome_maior = nome_menor = especie.nome
+            else:
+                if especie.carga > maior:
+                    maior = especie.carga
+                    nome_maior = especie.nome
+                if especie.carga < menor:
+                    menor = especie.carga
+                    nome_menor = especie.nome
+        if maior > 0:
+            print(f'A maior carga é: +{maior} da espécie {nome_maior}')
+        else:
+            print(f'A maior carga é: {maior} da espécie {nome_maior}')
+        if menor > 0:
+            print(f'A menor carga é: +{menor} da espécie {nome_menor}')
+        else:
+            print(f'A menor carga é: {menor} da espécie {nome_menor}')
+
 
 
      
